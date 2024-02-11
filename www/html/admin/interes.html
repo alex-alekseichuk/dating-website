@@ -1,0 +1,55 @@
+{iHeader}
+
+
+<script language="JavaScript" type="text/javascript" src="{images}/check.js"></script>
+
+<!-- begin_interes -->
+
+<!-- begin_interes_bHeadNew -->Новая запись<!-- end_interes_bHeadNew -->
+<!-- begin_interes_bHeadExisted -->Интересы #{interesId}<!-- end_interes_bHeadExisted -->
+
+<br>
+
+<script language="JavaScript">
+<!--
+function OnDelete()
+{
+	if (confirm("Уверены что хотите удалить?"))
+	{
+		location='interes.php?cmd=delete&{params}';
+	}
+}
+function OnSubmit()
+{
+	var sError = "";
+
+	{checks}
+
+	if (sError) {
+		alert("Внимание:\n" + sError);
+		return false;
+	} else {
+		return true;
+	}
+}
+//-->
+</script>
+
+<form name="interes" action="interes.php?{params}" method="post" onSubmit="return OnSubmit();">
+<input type="hidden" name="cmd" value="interes_{cmd}">
+<input type="hidden" name="interesId" value="{interesId}">
+<!-- begin_interes_bMessage -->{sMessage}<br><!-- end_interes_bMessage -->
+ID маски: <input type="text" name="maskId" value="{maskId}"><br>
+Интересы: <input type="text" name="title" value="{title}"><br>
+Приоритет: <input type="text" name="priority" value="{priority}"><br>
+<!-- begin_interes_bInsert --><input type="submit" value="Создать"><!-- end_interes_bInsert -->
+<!-- begin_interes_bUpdate --><input type="submit" value="Изменить"><!-- end_interes_bUpdate -->
+<input type="button" value="Отменить" onClick="location='intereses.php?{params}';">
+<!-- begin_interes_bDelete --><input type="button" value="Удалить" onClick="OnDelete();"><!-- end_interes_bDelete -->
+</form>
+
+<!-- end_interes -->
+
+
+{iFooter}
+

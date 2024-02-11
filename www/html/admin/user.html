@@ -1,0 +1,162 @@
+{iHeader}
+
+<script language="JavaScript" type="text/javascript" src="{images}/check.js"></script>
+
+
+<!-- begin_user -->
+
+<script language="JavaScript">
+<!--
+function OnDelete()
+{
+	if (confirm("Уверены что хотите удалить?"))
+	{
+		location='user.php?cmd=delete&{params}';
+	}
+}
+function OnSubmit()
+{
+	var sError = "";
+
+	{checks}
+
+	if (sError) {
+		alert("Внимание:\n" + sError);
+		return false;
+	} else {
+		return true;
+	}
+}
+//-->
+</script>
+
+Анкета #{userId}<br>
+{sMessage}<br>
+<form name="user" action="user.php" method="post" onSubmit="return OnSubmit();">
+<input type="hidden" name="cmd" value="user_{cmd}">
+<input type="hidden" name="userId" value="{userId}">
+
+Логин: {login}<br>
+Пароль: <input type="text" name="passwd" value="{passwd}"><br>
+
+Email: <input type="text" name="email" value="{email}"><br>
+
+Я: <select name="sex">{sexOptions}</select>
+ищу <select name="lookSex">{lookSexOptions}</select>
+<br>
+
+День рождения:
+<select name="birthDay">{birthDayOptions}</select>
+<select name="birthMonth">{birthMonthOptions}</select>
+<select name="birthYear">{birthYearOptions}</select>
+<br>
+Город: <select name="cityId">{cityIdOptions}</select><br>
+
+Рост: <input type="text" name="hight" value="{hight}"> см<br>
+Вес: <input type="text" name="weight" value="{weight}"> кг<br>
+
+Цели знакомства:<br>
+<!-- begin_goalIds --><input type="checkbox" name="goalIds[]" value="{value}" {checked}> {title}<br>
+<!-- end_goalIds -->
+
+Материальное положение: <select name="moneyId"><option value=""></option>{moneyIdOptions}</select><br>
+Дети: <select name="childrenId"><option value=""></option>{childrenIdOptions}</select><br>
+
+Семейное положение: <input type="checkbox" name="bMarried" value="1" {bMarried}> женат/замужем<br>
+Проживание: <select name="homeId"><option value=""></option>{homeIdOptions}</select><br>
+
+Знание языков:<br>
+<!-- begin_langIds --><input type="checkbox" name="langIds[]" value="{value}" {checked}> {title}<br>
+<!-- end_langIds -->
+
+Интересы:<br>
+<!-- begin_interesIds --><input type="checkbox" name="interesIds[]" value="{value}" {checked}> {title}<br>
+<!-- end_interesIds -->
+
+Алкоголь: <select name="alcoholId"><option value=""></option>{alcoholIdOptions}</select><br>
+Курение: <select name="smokeId"><option value=""></option>{smokeIdOptions}</select><br>
+
+Обо мне: <textarea name="about">{about}</textarea><br>
+
+VIP: <input type="checkbox" name="bVIP" value="1" {bVIP}><br>
+Счет: <input type="text" name="account" value="{account}"> $<br>
+
+Последний доступ: <input type="text" name="lastAccess" value="{lastAccess}"><br>
+
+Регистрация: {registered}<br>
+
+
+<br>
+<input type="submit" value="Изменить">
+<input type="button" value="Отменить" onClick="location='users.php?{params}';">
+<!-- begin_user_bDelete --><input type="button" value="Удалить" onClick="OnDelete();"><!-- end_user_bDelete -->
+</form>
+<!-- end_user -->
+
+<hr>
+Фото
+<!-- begin_pics -->
+<form action="user.php" method="post">
+<!-- begin_pics_bMessage -->{sMessage}<br><!-- end_pics_bMessage -->
+<table border="0">
+<input type="hidden" name="cmd" value="pics">
+<input type="hidden" name="userId" value="{userId}">
+<tr>
+<!-- begin_pic -->
+<td align="center" valign="top">
+<img src="../pics/{userId}_{picId}_s.jpg" border="0"><br><br><input type="checkbox" name="picId[]" value="{picId}" {checked}>
+</td>
+<!-- end_pic -->
+</tr>
+</table>
+<br>
+<input type="submit" value="Обновить">
+</form>
+<!-- end_pics -->
+
+<hr>
+Email открыт для
+<br>
+<!-- begin_emails -->
+
+{info}<br>
+<!-- begin_emails_pager -->
+<!-- begin_emails_first --><a href="{url}">First</a> <!-- end_emails_first -->
+<!-- begin_emails_prev --><a href="{url}">Prev.</a> <!-- end_emails_prev -->
+<!-- begin_emails_page -->
+<!-- begin_emails_link --><a href="{url}">{page}</a> <!-- end_emails_link -->
+<!-- begin_emails_curpage --><b>{page}</b> <!-- end_emails_curpage -->
+<!-- end_emails_page -->
+<!-- begin_emails_next --><a href="{url}">Next</a> <!-- end_emails_next -->
+<!-- begin_emails_last --><a href="{url}">Last</a> <!-- end_emails_last -->
+<!-- end_emails_pager -->
+<br>
+<table>
+<tr>
+<td>
+	<!-- begin_emails_sort_login --><a href="{url}">Имя</a> 
+	<!-- begin_emails_asc_login --><img border="0" src="{images}/asc.gif" /><!-- end_emails_asc_login -->
+	<!-- begin_emails_desc_login --><img border="0" src="{images}/desc.gif" /><!-- end_emails_desc_login --><!-- end_emails_sort_login --></td> 
+<td>&nbsp;</td>
+</tr>
+
+<!-- begin_emails_item -->
+<tr>
+<td><a href="user.php?userId={whoId}">{login}</a></td>
+<td><a href="user.php?cmd=delemail&whoId={whoId}&{params}">Закрыть</a></td>
+</tr>
+<!-- end_emails_item -->
+
+<!-- begin_emails_noitems -->
+<tr class="NoRecords">
+<td colspan="2">Закрыт для всех</td>
+</tr>
+<!-- end_emails_noitems -->
+</table>
+
+{info}<br>
+{pager2}<br>
+
+<!-- end_emails -->
+
+{iFooter}

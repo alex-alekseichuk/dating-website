@@ -1,0 +1,57 @@
+{iHeader}
+
+Употребеление спиртного<br>
+
+<!-- begin_alcohols -->
+<a href="alcohol.php?{params}">Добавить</a>
+<br>
+
+{info}<br>
+<!-- begin_alcohols_pager -->
+<!-- begin_alcohols_first --><a href="{url}">First</a> <!-- end_alcohols_first -->
+<!-- begin_alcohols_prev --><a href="{url}">Prev.</a> <!-- end_alcohols_prev -->
+<!-- begin_alcohols_page -->
+<!-- begin_alcohols_link --><a href="{url}">{page}</a> <!-- end_alcohols_link -->
+<!-- begin_alcohols_curpage --><b>{page}</b> <!-- end_alcohols_curpage -->
+<!-- end_alcohols_page -->
+<!-- begin_alcohols_next --><a href="{url}">Next</a> <!-- end_alcohols_next -->
+<!-- begin_alcohols_last --><a href="{url}">Last</a> <!-- end_alcohols_last -->
+<!-- end_alcohols_pager -->
+<br>
+<table>
+<tr>
+<td>
+	<!-- begin_alcohols_sort_alcoholId --><a href="{url}">ID</a> 
+	<!-- begin_alcohols_asc_alcoholId --><img border="0" src="{images}/asc.gif" /><!-- end_alcohols_asc_alcoholId -->
+	<!-- begin_alcohols_desc_alcoholId --><img border="0" src="{images}/desc.gif" /><!-- end_alcohols_desc_alcoholId --><!-- end_alcohols_sort_alcoholId --></td> 
+<td>
+	<!-- begin_alcohols_sort_title --><a href="{url}">Текст</a> 
+	<!-- begin_alcohols_asc_title --><img border="0" src="{images}/asc.gif" /><!-- end_alcohols_asc_title -->
+	<!-- begin_alcohols_desc_title --><img border="0" src="{images}/desc.gif" /><!-- end_alcohols_desc_title --><!-- end_alcohols_sort_title --></td> 
+<td>
+	<!-- begin_alcohols_sort_priority --><a href="{url}">Приоритет</a> 
+	<!-- begin_alcohols_asc_priority --><img border="0" src="{images}/asc.gif" /><!-- end_alcohols_asc_priority -->
+	<!-- begin_alcohols_desc_priority --><img border="0" src="{images}/desc.gif" /><!-- end_alcohols_desc_priority --><!-- end_alcohols_sort_priority --></td> 
+</tr>
+
+<!-- begin_alcohols_item -->
+<tr>
+<td>{alcoholId}</td>
+<td><a href="{link}{alcoholId}&{params}">{title}</a></td>
+<td>{priority}</td>
+</tr>
+<!-- end_alcohols_item -->
+
+<!-- begin_alcohols_noitems -->
+<tr class="NoRecords">
+<td colspan="3">Нет записей</td>
+</tr>
+<!-- end_alcohols_noitems -->
+</table>
+
+{info}<br>
+{pager2}<br>
+
+<!-- end_alcohols -->
+
+{iFooter}

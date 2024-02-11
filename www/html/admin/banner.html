@@ -1,0 +1,60 @@
+{iHeader}
+
+
+<script language="JavaScript" type="text/javascript" src="{images}/check.js"></script>
+
+<!-- begin_banner -->
+
+Банер
+
+<br>
+
+<script language="JavaScript">
+<!--
+function OnSubmit()
+{
+	var sError = "";
+
+	sError += checkField("URL",document.forms["banner"].url.value,false,5,128)
+
+	if (document.forms["banner"].picture.value.length > 0)
+	{
+		var sExt = document.forms["banner"].picture.value;
+		var i = sExt.lastIndexOf('.');
+		if (i != -1)
+		{
+			sExt = sExt.substring(i).toLowerCase();
+		}
+		if (sExt != ".gif" && sExt != ".jpg" && sExt != ".jpeg" && sExt != ".png")
+		{
+			sError += "\tНекорректный тип прикрепляемого файла\n";
+		}
+	}
+
+	if (sError) {
+		alert("Внимание:\n" + sError);
+		return false;
+	} else {
+		return true;
+	}
+}
+//-->
+</script>
+
+<form name="banner" action="banner.php?{params}" method="post" enctype="multipart/form-data" onSubmit="return OnSubmit();">
+<input type="hidden" name="cmd" value="update">
+<!-- begin_banner_bMessage -->{sMessage}<br><!-- end_banner_bMessage -->
+URL: <input type="text" name="url" value="{url}"> (пустой - без баннера)<br>
+
+Картинка: <input type="file" name="picture"><br>
+
+<input type="submit" value="Изменить">
+<br>
+<img src="../img/banner_{bannerId}.jpg" border="0">
+</form>
+
+<!-- end_banner -->
+
+
+{iFooter}
+

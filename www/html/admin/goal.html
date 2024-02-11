@@ -1,0 +1,55 @@
+{iHeader}
+
+
+<script language="JavaScript" type="text/javascript" src="{images}/check.js"></script>
+
+<!-- begin_goal -->
+
+<!-- begin_goal_bHeadNew -->Новая запись<!-- end_goal_bHeadNew -->
+<!-- begin_goal_bHeadExisted -->Цель знакомства #{goalId}<!-- end_goal_bHeadExisted -->
+
+<br>
+
+<script language="JavaScript">
+<!--
+function OnDelete()
+{
+	if (confirm("Уверены что хотите удалить?"))
+	{
+		location='goal.php?cmd=delete&{params}';
+	}
+}
+function OnSubmit()
+{
+	var sError = "";
+
+	{checks}
+
+	if (sError) {
+		alert("Внимание:\n" + sError);
+		return false;
+	} else {
+		return true;
+	}
+}
+//-->
+</script>
+
+<form name="goal" action="goal.php?{params}" method="post" onSubmit="return OnSubmit();">
+<input type="hidden" name="cmd" value="goal_{cmd}">
+<input type="hidden" name="goalId" value="{goalId}">
+<!-- begin_goal_bMessage -->{sMessage}<br><!-- end_goal_bMessage -->
+ID маски: <input type="text" name="maskId" value="{maskId}"><br>
+Цель знакомства: <input type="text" name="title" value="{title}"><br>
+Приоритет: <input type="text" name="priority" value="{priority}"><br>
+<!-- begin_goal_bInsert --><input type="submit" value="Создать"><!-- end_goal_bInsert -->
+<!-- begin_goal_bUpdate --><input type="submit" value="Изменить"><!-- end_goal_bUpdate -->
+<input type="button" value="Отменить" onClick="location='goals.php?{params}';">
+<!-- begin_goal_bDelete --><input type="button" value="Удалить" onClick="OnDelete();"><!-- end_goal_bDelete -->
+</form>
+
+<!-- end_goal -->
+
+
+{iFooter}
+

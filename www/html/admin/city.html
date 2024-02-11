@@ -1,0 +1,55 @@
+{iHeader}
+
+
+<script language="JavaScript" type="text/javascript" src="{images}/check.js"></script>
+
+<!-- begin_city -->
+
+<!-- begin_city_bHeadNew -->Новый Город<!-- end_city_bHeadNew -->
+<!-- begin_city_bHeadExisted -->Город #{cityId}<!-- end_city_bHeadExisted -->
+
+<br>
+
+<script language="JavaScript">
+<!--
+function OnDelete()
+{
+	if (confirm("Уверены что хотите удалить?"))
+	{
+		location='city.php?cmd=delete&{params}';
+	}
+}
+function OnSubmit()
+{
+	var sError = "";
+
+	{checks}
+
+	if (sError) {
+		alert("Внимание:\n" + sError);
+		return false;
+	} else {
+		return true;
+	}
+}
+//-->
+</script>
+
+<form name="city" action="city.php?{params}" method="post" onSubmit="return OnSubmit();">
+<input type="hidden" name="cmd" value="city_{cmd}">
+<input type="hidden" name="cityId" value="{cityId}">
+<!-- begin_city_bMessage -->{sMessage}<br><!-- end_city_bMessage -->
+Город: <input type="text" name="title" value="{title}"><br>
+GeoIP имя: <input type="text" name="sGeoipCity" value="{sGeoipCity}"><br>
+100 баллов: <input type="text" name="points100" value="{points100}"> 0 - стандартная цена<br>
+<!-- begin_city_bInsert --><input type="submit" value="Создать"><!-- end_city_bInsert -->
+<!-- begin_city_bUpdate --><input type="submit" value="Изменить"><!-- end_city_bUpdate -->
+<input type="button" value="Отменить" onClick="location='cities.php?{params}';">
+<!-- begin_city_bDelete --><input type="button" value="Удалить" onClick="OnDelete();"><!-- end_city_bDelete -->
+</form>
+
+<!-- end_city -->
+
+
+{iFooter}
+

@@ -1,0 +1,93 @@
+{iHeader}
+
+Пользователи<br>
+
+
+<!-- begin_users -->
+
+{info}<br>
+<!-- begin_users_pager -->
+<!-- begin_users_first --><a href="{url}">First</a> <!-- end_users_first -->
+<!-- begin_users_prev --><a href="{url}">Prev.</a> <!-- end_users_prev -->
+<!-- begin_users_page -->
+<!-- begin_users_link --><a href="{url}">{page}</a> <!-- end_users_link -->
+<!-- begin_users_curpage --><b>{page}</b> <!-- end_users_curpage -->
+<!-- end_users_page -->
+<!-- begin_users_next --><a href="{url}">Next</a> <!-- end_users_next -->
+<!-- begin_users_last --><a href="{url}">Last</a> <!-- end_users_last -->
+<!-- end_users_pager -->
+<br>
+<table>
+<tr>
+<td>
+	<!-- begin_users_sort_userId --><a href="{url}">ID</a> 
+	<!-- begin_users_asc_userId --><img border="0" src="{images}/asc.gif" /><!-- end_users_asc_userId -->
+	<!-- begin_users_desc_userId --><img border="0" src="{images}/desc.gif" /><!-- end_users_desc_userId --><!-- end_users_sort_userId --></td> 
+<td>
+	<!-- begin_users_sort_login --><a href="{url}">Имя</a> 
+	<!-- begin_users_asc_login --><img border="0" src="{images}/asc.gif" /><!-- end_users_asc_login -->
+	<!-- begin_users_desc_login --><img border="0" src="{images}/desc.gif" /><!-- end_users_desc_login --><!-- end_users_sort_login --></td> 
+<td>
+	<!-- begin_users_sort_passwd --><a href="{url}">Пароль</a> 
+	<!-- begin_users_asc_passwd --><img border="0" src="{images}/asc.gif" /><!-- end_users_asc_passwd -->
+	<!-- begin_users_desc_passwd --><img border="0" src="{images}/desc.gif" /><!-- end_users_desc_passwd --><!-- end_users_sort_passwd --></td> 
+<td>
+	<!-- begin_users_sort_email --><a href="{url}">Email</a> 
+	<!-- begin_users_asc_email --><img border="0" src="{images}/asc.gif" /><!-- end_users_asc_email -->
+	<!-- begin_users_desc_email --><img border="0" src="{images}/desc.gif" /><!-- end_users_desc_email --><!-- end_users_sort_email --></td> 
+<td>
+	<!-- begin_users_sort_account --><a href="{url}">Счет, $</a> 
+	<!-- begin_users_asc_account --><img border="0" src="{images}/asc.gif" /><!-- end_users_asc_account -->
+	<!-- begin_users_desc_account --><img border="0" src="{images}/desc.gif" /><!-- end_users_desc_account --><!-- end_users_sort_account --></td> 
+<td>
+	<!-- begin_users_sort_birth --><a href="{url}">День рождения</a> 
+	<!-- begin_users_asc_birth --><img border="0" src="{images}/asc.gif" /><!-- end_users_asc_birth -->
+	<!-- begin_users_desc_birth --><img border="0" src="{images}/desc.gif" /><!-- end_users_desc_birth --><!-- end_users_sort_birth --></td> 
+<td>
+	<!-- begin_users_sort_sex --><a href="{url}">Пол</a> 
+	<!-- begin_users_asc_sex --><img border="0" src="{images}/asc.gif" /><!-- end_users_asc_sex -->
+	<!-- begin_users_desc_sex --><img border="0" src="{images}/desc.gif" /><!-- end_users_desc_sex --><!-- end_users_sort_sex --></td> 
+<td>
+	<!-- begin_users_sort_lookSex --><a href="{url}">Ищет</a> 
+	<!-- begin_users_asc_lookSex --><img border="0" src="{images}/asc.gif" /><!-- end_users_asc_lookSex -->
+	<!-- begin_users_desc_lookSex --><img border="0" src="{images}/desc.gif" /><!-- end_users_desc_lookSex --><!-- end_users_sort_lookSex --></td> 
+<td>
+	<!-- begin_users_sort_bVIP --><a href="{url}">VIP</a> 
+	<!-- begin_users_asc_bVIP --><img border="0" src="{images}/asc.gif" /><!-- end_users_asc_bVIP -->
+	<!-- begin_users_desc_bVIP --><img border="0" src="{images}/desc.gif" /><!-- end_users_desc_bVIP --><!-- end_users_sort_bVIP --></td> 
+<td>
+	<!-- begin_users_sort_registered --><a href="{url}">Регистрация</a> 
+	<!-- begin_users_asc_registered --><img border="0" src="{images}/asc.gif" /><!-- end_users_asc_registered -->
+	<!-- begin_users_desc_registered --><img border="0" src="{images}/desc.gif" /><!-- end_users_desc_registered --><!-- end_users_sort_registered --></td> 
+</tr>
+
+<!-- begin_users_item -->
+<tr>
+<td>{userId}</td>
+<td><a href="{link}{userId}&{params}">{login}</a></td>
+<td>{passwd}</td>
+<td>{email}</td>
+<td>{account}</td>
+<td>{birth}</td>
+<td>{sex}</td>
+<td>{lookSex}</td>
+<td>{bVIP}</td>
+<td>{registered}</td>
+</tr>
+<!-- end_users_item -->
+
+<!-- begin_users_noitems -->
+<tr class="NoRecords">
+<td colspan="9">Нет пользователей</td>
+</tr>
+<!-- end_users_noitems -->
+</table>
+
+{info}<br>
+{pager2}<br>
+
+<!-- end_users -->
+
+
+
+{iFooter}

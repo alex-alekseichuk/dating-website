@@ -1,0 +1,97 @@
+{iHeader}
+
+Голосование<br>
+
+<!-- begin_vote -->
+
+
+<script language="JavaScript">
+<!--
+function OnSubmit()
+{
+	var sError = "";
+
+	sError += checkField("Вопрос",document.forms["vote"].voting.value,false,5,255)
+
+	if (sError) {
+		alert("Внимание:\n" + sError);
+		return false;
+	} else {
+		return true;
+	}
+}
+//-->
+</script>
+
+<form name="vote" action="votes.php?{params}" method="post" onSubmit="return OnSubmit();">
+<input type="hidden" name="cmd" value="update">
+<!-- begin_vote_bMessage -->{sMessage}<br><!-- end_vote_bMessage -->
+Вопрос: <input type="text" name="voting" value="{voting}"> (пустой - без голосования)<br>
+
+<input type="submit" value="Изменить">
+</form>
+
+<!-- end_vote -->
+
+
+
+
+<!-- begin_votes -->
+Ответы<br>
+<a href="vote.php?{params}">Добавить</a>
+<br>
+
+{info}<br>
+<!-- begin_votes_pager -->
+<!-- begin_votes_first --><a href="{url}">First</a> <!-- end_votes_first -->
+<!-- begin_votes_prev --><a href="{url}">Prev.</a> <!-- end_votes_prev -->
+<!-- begin_votes_page -->
+<!-- begin_votes_link --><a href="{url}">{page}</a> <!-- end_votes_link -->
+<!-- begin_votes_curpage --><b>{page}</b> <!-- end_votes_curpage -->
+<!-- end_votes_page -->
+<!-- begin_votes_next --><a href="{url}">Next</a> <!-- end_votes_next -->
+<!-- begin_votes_last --><a href="{url}">Last</a> <!-- end_votes_last -->
+<!-- end_votes_pager -->
+<br>
+<table>
+<tr>
+<td>
+	<!-- begin_votes_sort_voteId --><a href="{url}">ID</a> 
+	<!-- begin_votes_asc_voteId --><img border="0" src="{images}/asc.gif" /><!-- end_votes_asc_voteId -->
+	<!-- begin_votes_desc_voteId --><img border="0" src="{images}/desc.gif" /><!-- end_votes_desc_voteId --><!-- end_votes_sort_voteId --></td> 
+<td>
+	<!-- begin_votes_sort_title --><a href="{url}">Ответ</a> 
+	<!-- begin_votes_asc_title --><img border="0" src="{images}/asc.gif" /><!-- end_votes_asc_title -->
+	<!-- begin_votes_desc_title --><img border="0" src="{images}/desc.gif" /><!-- end_votes_desc_title --><!-- end_votes_sort_title --></td> 
+<td>
+	<!-- begin_votes_sort_cnt --><a href="{url}">Счетчик</a> 
+	<!-- begin_votes_asc_cnt --><img border="0" src="{images}/asc.gif" /><!-- end_votes_asc_cnt -->
+	<!-- begin_votes_desc_cnt --><img border="0" src="{images}/desc.gif" /><!-- end_votes_desc_cnt --><!-- end_votes_sort_cnt --></td> 
+<td>
+	<!-- begin_votes_sort_priority --><a href="{url}">Приоритет</a> 
+	<!-- begin_votes_asc_priority --><img border="0" src="{images}/asc.gif" /><!-- end_votes_asc_priority -->
+	<!-- begin_votes_desc_priority --><img border="0" src="{images}/desc.gif" /><!-- end_votes_desc_priority --><!-- end_votes_sort_priority --></td> 
+</tr>
+
+<!-- begin_votes_item -->
+<tr>
+<td>{voteId}</td>
+<td><a href="{link}{voteId}&{params}">{title}</a></td>
+<td>{cnt}</td>
+<td>{priority}</td>
+</tr>
+<!-- end_votes_item -->
+
+<!-- begin_votes_noitems -->
+<tr class="NoRecords">
+<td colspan="4">Нет записей</td>
+</tr>
+<!-- end_votes_noitems -->
+</table>
+
+{info}<br>
+{pager2}<br>
+
+<!-- end_votes -->
+
+{iFooter}

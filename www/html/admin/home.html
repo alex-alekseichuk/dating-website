@@ -1,0 +1,54 @@
+{iHeader}
+
+
+<script language="JavaScript" type="text/javascript" src="{images}/check.js"></script>
+
+<!-- begin_home -->
+
+<!-- begin_home_bHeadNew -->Новая запись<!-- end_home_bHeadNew -->
+<!-- begin_home_bHeadExisted -->Проживание #{homeId}<!-- end_home_bHeadExisted -->
+
+<br>
+
+<script language="JavaScript">
+<!--
+function OnDelete()
+{
+	if (confirm("Уверены что хотите удалить?"))
+	{
+		location='home.php?cmd=delete&{params}';
+	}
+}
+function OnSubmit()
+{
+	var sError = "";
+
+	{checks}
+
+	if (sError) {
+		alert("Внимание:\n" + sError);
+		return false;
+	} else {
+		return true;
+	}
+}
+//-->
+</script>
+
+<form name="home" action="home.php?{params}" method="post" onSubmit="return OnSubmit();">
+<input type="hidden" name="cmd" value="home_{cmd}">
+<input type="hidden" name="homeId" value="{homeId}">
+<!-- begin_home_bMessage -->{sMessage}<br><!-- end_home_bMessage -->
+Проживание: <input type="text" name="title" value="{title}"><br>
+Приоритет: <input type="text" name="priority" value="{priority}"><br>
+<!-- begin_home_bInsert --><input type="submit" value="Создать"><!-- end_home_bInsert -->
+<!-- begin_home_bUpdate --><input type="submit" value="Изменить"><!-- end_home_bUpdate -->
+<input type="button" value="Отменить" onClick="location='homes.php?{params}';">
+<!-- begin_home_bDelete --><input type="button" value="Удалить" onClick="OnDelete();"><!-- end_home_bDelete -->
+</form>
+
+<!-- end_home -->
+
+
+{iFooter}
+

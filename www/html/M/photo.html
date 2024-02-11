@@ -1,0 +1,69 @@
+{iHeader}
+
+<script language="JavaScript" type="text/javascript" src="{images}/check.js"></script>
+
+<!-- begin_fPhoto -->
+
+<script language="JavaScript">
+<!--
+function OnSubmit(picId)
+{
+	var sError = "";
+
+	sError += checkEmptyValue("Фото", document.forms["pic_"+picId].picture.value);
+	if (document.forms["pic_"+picId].picture.value.length > 0)
+	{
+		var sExt = document.forms["pic_"+picId].picture.value;
+		var i = sExt.lastIndexOf('.');
+		if (i != -1)
+		{
+			sExt = sExt.substring(i).toLowerCase();
+		}
+		if (sExt != ".gif" && sExt != ".jpg" && sExt != ".jpeg" && sExt != ".png")
+		{
+			sError += "\tНекорректный тип прикрепляемого файла\n";
+		}
+	}
+
+	if (sError) {
+		alert("Внимание:\n" + sError);
+		return false;
+	} else {
+		return true;
+	}
+}
+//-->
+</script>
+
+Ваши фото<br>
+{sMessage}<br>
+
+<!-- begin_photo -->
+<form name="pic_{picId}" action="photo.php" method="post" enctype="multipart/form-data" onSubmit="return OnSubmit({picId});">
+<input type="hidden" name="cmd" value="update">
+<input type="hidden" name="picId" value="{picId}">
+{n}. <img src="pics/{userId}_{picId}_s.jpg"> {sApproved}<br>
+<input type="hidden" name="MAX_FILE_SIZE" value="{MAX_FILE_SIZE}">
+<input type="file" name="picture"> &nbsp; <span>не более 1M !</span> &nbsp; (.gif, .jpg или .png)<br>
+<input type="checkbox" name="bMain" value="1" {bMain}> Основное фото<br>
+<input type="submit" value="Загрузить">
+<input type="button" value="Удалить" onClick="document.location='photo.php?cmd=delete&picId={picId}';">
+<input type="button" value="Сделать основным" onClick="document.location='photo.php?cmd=main&picId={picId}';">
+</form>
+<br>
+<!-- end_photo -->
+
+<!-- begin_nophoto -->
+Новое фото
+<form name="pic_0" action="photo.php" method="post" enctype="multipart/form-data" onSubmit="return OnSubmit(0);">
+<input type="hidden" name="cmd" value="insert">
+<input type="hidden" name="MAX_FILE_SIZE" value="1048576">
+<input type="file" name="picture"> &nbsp; <span>не более 1M !</span> &nbsp; (.gif, .jpg или .png)<br>
+<input type="checkbox" name="bMain" value="1"> Основное фото<br>
+<input type="submit" value="Загрузить">
+</form>
+<!-- end_nophoto -->
+
+<!-- end_fPhoto -->
+
+{iFooter}

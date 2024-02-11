@@ -1,0 +1,73 @@
+{iHeader}
+
+<script language="JavaScript" type="text/javascript" src="{images}/check.js"></script>
+
+
+<!-- begin_user -->
+
+{sMessage}<br>
+<b>{login}</b> VIP<br>
+
+{sex} ищет {lookSex}<br>
+
+Возраст: {age}<br>
+Город: {cityId}<br>
+
+Рост, см: {hight}<br>
+Вес, кг: {weight}<br>
+
+Цели знакомства:<br>
+<!-- begin_goalIds -->{title}<br>
+<!-- end_goalIds -->
+
+Материальное положение: {moneyId}<br>
+Дети: {childrenId}<br>
+
+Семейное положение: {married}<br>
+Проживание: {homeId}<br>
+
+Знание языков:<br>
+<!-- begin_langIds -->{title}<br>
+<!-- end_langIds -->
+
+Интересы:<br>
+<!-- begin_interesIds -->{title}<br>
+<!-- end_interesIds -->
+
+Алкоголь: {alcoholId}<br>
+Курение: {smokeId}<br>
+
+Обо мне:<br>
+{about}<br>
+
+
+<!-- end_user -->
+
+<hr>
+
+<!-- begin_pics -->
+
+<!-- begin_pics_item -->
+<a href="register.php?mes=pic"><img src="pics/{userId}_{picId}_s.jpg" border="0"></a>
+&nbsp;
+<!-- end_pics_item -->
+
+<!-- begin_pics_noitems -->
+Фото нет.
+<!-- end_pics_noitems -->
+
+<!-- end_pics -->
+
+<hr>
+
+<!-- begin_videos -->
+Видео:<br>
+<!-- begin_videos_item -->
+{n1}. <a href="register.php?mes=video">{video}</a>
+<br>
+<!-- end_videos_item -->
+
+<!-- end_videos -->
+
+
+{iFooter}

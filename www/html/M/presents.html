@@ -1,0 +1,31 @@
+{iHeader}
+
+<script language="JavaScript" type="text/javascript" src="{images}/check.js"></script>
+
+
+
+<!-- begin_presents -->
+
+Подарки
+<br>
+<br>
+<!-- begin_bMessage -->
+{sMessage}<br>
+<!-- end_bMessage -->
+
+<!-- begin_present -->
+<a href="presents/{presentId}.jpg" target="_blank"><img src="presents/{presentId}_s.jpg" border="0"></a>
+<br>
+От: <a href="view.php?userId={userId}">{login}</a>
+<br>
+<i>{message}</i>
+<br>
+<a href="presents.php?cmd=delete&sentPresentId={sentPresentId}">Удалить</a>
+<br>
+<br>
+<!-- end_present -->
+
+<!-- end_presents -->
+
+
+{iFooter}

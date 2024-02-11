@@ -1,0 +1,54 @@
+{iHeader}
+
+
+<script language="JavaScript" type="text/javascript" src="{images}/check.js"></script>
+
+<!-- begin_smoke -->
+
+<!-- begin_smoke_bHeadNew -->Новая запись<!-- end_smoke_bHeadNew -->
+<!-- begin_smoke_bHeadExisted -->Курение #{smokeId}<!-- end_smoke_bHeadExisted -->
+
+<br>
+
+<script language="JavaScript">
+<!--
+function OnDelete()
+{
+	if (confirm("Уверены что хотите удалить?"))
+	{
+		location='smoke.php?cmd=delete&{params}';
+	}
+}
+function OnSubmit()
+{
+	var sError = "";
+
+	{checks}
+
+	if (sError) {
+		alert("Внимание:\n" + sError);
+		return false;
+	} else {
+		return true;
+	}
+}
+//-->
+</script>
+
+<form name="smoke" action="smoke.php?{params}" method="post" onSubmit="return OnSubmit();">
+<input type="hidden" name="cmd" value="smoke_{cmd}">
+<input type="hidden" name="smokeId" value="{smokeId}">
+<!-- begin_smoke_bMessage -->{sMessage}<br><!-- end_smoke_bMessage -->
+Курение: <input type="text" name="title" value="{title}"><br>
+Приоритет: <input type="text" name="priority" value="{priority}"><br>
+<!-- begin_smoke_bInsert --><input type="submit" value="Создать"><!-- end_smoke_bInsert -->
+<!-- begin_smoke_bUpdate --><input type="submit" value="Изменить"><!-- end_smoke_bUpdate -->
+<input type="button" value="Отменить" onClick="location='smokes.php?{params}';">
+<!-- begin_smoke_bDelete --><input type="button" value="Удалить" onClick="OnDelete();"><!-- end_smoke_bDelete -->
+</form>
+
+<!-- end_smoke -->
+
+
+{iFooter}
+

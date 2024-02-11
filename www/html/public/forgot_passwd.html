@@ -1,0 +1,47 @@
+{iHeader}
+
+<script language="JavaScript" type="text/javascript" src="{images}/check.js"></script>
+
+<br>
+<a href="login.php">Вход</a>
+<br>
+<a href="register.php">Регистрация</a>
+
+<br>
+<br>
+
+
+<!-- begin_forgot -->
+
+<script language="JavaScript">
+<!--
+function OnSubmit()
+{
+	var sError = "";
+
+	{checks}
+
+	if (sError) {
+		alert("Внимание:\n" + sError);
+		return false;
+	} else {
+		return true;
+	}
+}
+//-->
+</script>
+
+Забыли пароль?<br>
+{sMessage}<br>
+<form name="forgot" action="forgot_passwd.php" method="post" onSubmit="return OnSubmit();">
+<input type="hidden" name="cmd" value="forgot">
+
+Логин: <input type="text" name="login" value="{login}"><br>
+Email: <input type="text" name="email" value="{email}"><br>
+
+<br>
+<input type="submit" value="Выслать пароль">
+</form>
+<!-- end_forgot -->
+
+{iFooter}

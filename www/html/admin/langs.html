@@ -1,0 +1,62 @@
+{iHeader}
+
+Знание языков<br>
+
+<!-- begin_langs -->
+<a href="lang.php?{params}">Добавить</a>
+<br>
+
+{info}<br>
+<!-- begin_langs_pager -->
+<!-- begin_langs_first --><a href="{url}">First</a> <!-- end_langs_first -->
+<!-- begin_langs_prev --><a href="{url}">Prev.</a> <!-- end_langs_prev -->
+<!-- begin_langs_page -->
+<!-- begin_langs_link --><a href="{url}">{page}</a> <!-- end_langs_link -->
+<!-- begin_langs_curpage --><b>{page}</b> <!-- end_langs_curpage -->
+<!-- end_langs_page -->
+<!-- begin_langs_next --><a href="{url}">Next</a> <!-- end_langs_next -->
+<!-- begin_langs_last --><a href="{url}">Last</a> <!-- end_langs_last -->
+<!-- end_langs_pager -->
+<br>
+<table>
+<tr>
+<td>
+	<!-- begin_langs_sort_langId --><a href="{url}">ID</a> 
+	<!-- begin_langs_asc_langId --><img border="0" src="{images}/asc.gif" /><!-- end_langs_asc_langId -->
+	<!-- begin_langs_desc_langId --><img border="0" src="{images}/desc.gif" /><!-- end_langs_desc_langId --><!-- end_langs_sort_langId --></td> 
+<td>
+	<!-- begin_langs_sort_maskId --><a href="{url}">Mask ID</a> 
+	<!-- begin_langs_asc_maskId --><img border="0" src="{images}/asc.gif" /><!-- end_langs_asc_maskId -->
+	<!-- begin_langs_desc_maskId --><img border="0" src="{images}/desc.gif" /><!-- end_langs_desc_maskId --><!-- end_langs_sort_maskId --></td> 
+<td>
+	<!-- begin_langs_sort_title --><a href="{url}">Язык</a> 
+	<!-- begin_langs_asc_title --><img border="0" src="{images}/asc.gif" /><!-- end_langs_asc_title -->
+	<!-- begin_langs_desc_title --><img border="0" src="{images}/desc.gif" /><!-- end_langs_desc_title --><!-- end_langs_sort_title --></td> 
+<td>
+	<!-- begin_langs_sort_priority --><a href="{url}">Приоритет</a> 
+	<!-- begin_langs_asc_priority --><img border="0" src="{images}/asc.gif" /><!-- end_langs_asc_priority -->
+	<!-- begin_langs_desc_priority --><img border="0" src="{images}/desc.gif" /><!-- end_langs_desc_priority --><!-- end_langs_sort_priority --></td> 
+</tr>
+
+<!-- begin_langs_item -->
+<tr>
+<td>{langId}</td>
+<td>{maskId}</td>
+<td><a href="{link}{langId}&{params}">{title}</a></td>
+<td>{priority}</td>
+</tr>
+<!-- end_langs_item -->
+
+<!-- begin_langs_noitems -->
+<tr class="NoRecords">
+<td colspan="4">Нет записей</td>
+</tr>
+<!-- end_langs_noitems -->
+</table>
+
+{info}<br>
+{pager2}<br>
+
+<!-- end_langs -->
+
+{iFooter}

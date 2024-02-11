@@ -1,0 +1,55 @@
+{iHeader}
+
+
+<script language="JavaScript" type="text/javascript" src="{images}/check.js"></script>
+
+<!-- begin_lang -->
+
+<!-- begin_lang_bHeadNew -->Новая запись<!-- end_lang_bHeadNew -->
+<!-- begin_lang_bHeadExisted -->Язык #{langId}<!-- end_lang_bHeadExisted -->
+
+<br>
+
+<script language="JavaScript">
+<!--
+function OnDelete()
+{
+	if (confirm("Уверены что хотите удалить?"))
+	{
+		location='lang.php?cmd=delete&{params}';
+	}
+}
+function OnSubmit()
+{
+	var sError = "";
+
+	{checks}
+
+	if (sError) {
+		alert("Внимание:\n" + sError);
+		return false;
+	} else {
+		return true;
+	}
+}
+//-->
+</script>
+
+<form name="lang" action="lang.php?{params}" method="post" onSubmit="return OnSubmit();">
+<input type="hidden" name="cmd" value="lang_{cmd}">
+<input type="hidden" name="langId" value="{langId}">
+<!-- begin_lang_bMessage -->{sMessage}<br><!-- end_lang_bMessage -->
+ID маски: <input type="text" name="maskId" value="{maskId}"><br>
+Язык: <input type="text" name="title" value="{title}"><br>
+Приоритет: <input type="text" name="priority" value="{priority}"><br>
+<!-- begin_lang_bInsert --><input type="submit" value="Создать"><!-- end_lang_bInsert -->
+<!-- begin_lang_bUpdate --><input type="submit" value="Изменить"><!-- end_lang_bUpdate -->
+<input type="button" value="Отменить" onClick="location='langs.php?{params}';">
+<!-- begin_lang_bDelete --><input type="button" value="Удалить" onClick="OnDelete();"><!-- end_lang_bDelete -->
+</form>
+
+<!-- end_lang -->
+
+
+{iFooter}
+

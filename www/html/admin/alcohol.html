@@ -1,0 +1,54 @@
+{iHeader}
+
+
+<script language="JavaScript" type="text/javascript" src="{images}/check.js"></script>
+
+<!-- begin_alcohol -->
+
+<!-- begin_alcohol_bHeadNew -->Новая запись<!-- end_alcohol_bHeadNew -->
+<!-- begin_alcohol_bHeadExisted -->Алкоголь #{alcoholId}<!-- end_alcohol_bHeadExisted -->
+
+<br>
+
+<script language="JavaScript">
+<!--
+function OnDelete()
+{
+	if (confirm("Уверены что хотите удалить?"))
+	{
+		location='alcohol.php?cmd=delete&{params}';
+	}
+}
+function OnSubmit()
+{
+	var sError = "";
+
+	{checks}
+
+	if (sError) {
+		alert("Внимание:\n" + sError);
+		return false;
+	} else {
+		return true;
+	}
+}
+//-->
+</script>
+
+<form name="alcohol" action="alcohol.php?{params}" method="post" onSubmit="return OnSubmit();">
+<input type="hidden" name="cmd" value="alcohol_{cmd}">
+<input type="hidden" name="alcoholId" value="{alcoholId}">
+<!-- begin_alcohol_bMessage -->{sMessage}<br><!-- end_alcohol_bMessage -->
+Алкоголь: <input type="text" name="title" value="{title}"><br>
+Приоритет: <input type="text" name="priority" value="{priority}"><br>
+<!-- begin_alcohol_bInsert --><input type="submit" value="Создать"><!-- end_alcohol_bInsert -->
+<!-- begin_alcohol_bUpdate --><input type="submit" value="Изменить"><!-- end_alcohol_bUpdate -->
+<input type="button" value="Отменить" onClick="location='alcohols.php?{params}';">
+<!-- begin_alcohol_bDelete --><input type="button" value="Удалить" onClick="OnDelete();"><!-- end_alcohol_bDelete -->
+</form>
+
+<!-- end_alcohol -->
+
+
+{iFooter}
+

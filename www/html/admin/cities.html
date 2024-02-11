@@ -1,0 +1,62 @@
+{iHeader}
+
+Города<br>
+
+<!-- begin_cities -->
+<a href="city.php?{params}">Добавить город</a>
+<br>
+
+{info}<br>
+<!-- begin_cities_pager -->
+<!-- begin_cities_first --><a href="{url}">First</a> <!-- end_cities_first -->
+<!-- begin_cities_prev --><a href="{url}">Prev.</a> <!-- end_cities_prev -->
+<!-- begin_cities_page -->
+<!-- begin_cities_link --><a href="{url}">{page}</a> <!-- end_cities_link -->
+<!-- begin_cities_curpage --><b>{page}</b> <!-- end_cities_curpage -->
+<!-- end_cities_page -->
+<!-- begin_cities_next --><a href="{url}">Next</a> <!-- end_cities_next -->
+<!-- begin_cities_last --><a href="{url}">Last</a> <!-- end_cities_last -->
+<!-- end_cities_pager -->
+<br>
+<table>
+<tr>
+<td>
+	<!-- begin_cities_sort_cityId --><a href="{url}">ID</a> 
+	<!-- begin_cities_asc_cityId --><img border="0" src="{images}/asc.gif" /><!-- end_cities_asc_cityId -->
+	<!-- begin_cities_desc_cityId --><img border="0" src="{images}/desc.gif" /><!-- end_cities_desc_cityId --><!-- end_cities_sort_cityId --></td> 
+<td>
+	<!-- begin_cities_sort_title --><a href="{url}">Город</a> 
+	<!-- begin_cities_asc_title --><img border="0" src="{images}/asc.gif" /><!-- end_cities_asc_title -->
+	<!-- begin_cities_desc_title --><img border="0" src="{images}/desc.gif" /><!-- end_cities_desc_title --><!-- end_cities_sort_title --></td> 
+<td>
+	<!-- begin_cities_sort_sGeoipCity --><a href="{url}">GeoIP</a> 
+	<!-- begin_cities_asc_sGeoipCity --><img border="0" src="{images}/asc.gif" /><!-- end_cities_asc_sGeoipCity -->
+	<!-- begin_cities_desc_sGeoipCity --><img border="0" src="{images}/desc.gif" /><!-- end_cities_desc_sGeoipCity --><!-- end_cities_sort_sGeoipCity --></td> 
+<td>
+	<!-- begin_cities_sort_points100 --><a href="{url}">100 баллов</a> 
+	<!-- begin_cities_asc_points100 --><img border="0" src="{images}/asc.gif" /><!-- end_cities_asc_points100 -->
+	<!-- begin_cities_desc_points100 --><img border="0" src="{images}/desc.gif" /><!-- end_cities_desc_points100 --><!-- end_cities_sort_points100 --></td> 
+</tr>
+
+<!-- begin_cities_item -->
+<tr>
+<td>{cityId}</td>
+<td><a href="{link}{cityId}&{params}">{title}</a></td>
+<td>{sGeoipCity}</td>
+<td>{points100}</td>
+</tr>
+<!-- end_cities_item -->
+
+<!-- begin_cities_noitems -->
+<tr class="NoRecords">
+<td colspan="3">Нет городов</td>
+</tr>
+<!-- end_cities_noitems -->
+</table>
+
+{info}<br>
+{pager2}<br>
+
+<!-- end_cities -->
+
+{iFooter}

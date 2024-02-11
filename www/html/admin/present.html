@@ -1,0 +1,76 @@
+{iHeader}
+
+
+<script language="JavaScript" type="text/javascript" src="{images}/check.js"></script>
+
+<!-- begin_present -->
+
+<!-- begin_present_bHeadNew -->Новый подарок<!-- end_present_bHeadNew -->
+<!-- begin_present_bHeadExisted -->Подарок #{presentId}<!-- end_present_bHeadExisted -->
+
+<br>
+
+<script language="JavaScript">
+<!--
+function OnDelete()
+{
+	if (confirm("Уверены что хотите удалить?"))
+	{
+		location='present.php?cmd=delete&{params}';
+	}
+}
+function OnSubmit()
+{
+	var sError = "";
+
+	{checks}
+
+	if (document.forms["present"].presentId.value == 0)
+		sError += checkEmptyValue("Картинка", document.forms["present"].picture.value);
+	if (document.forms["present"].picture.value.length > 0)
+	{
+		var sExt = document.forms["present"].picture.value;
+		var i = sExt.lastIndexOf('.');
+		if (i != -1)
+		{
+			sExt = sExt.substring(i).toLowerCase();
+		}
+		if (sExt != ".gif" && sExt != ".jpg" && sExt != ".jpeg" && sExt != ".png")
+		{
+			sError += "\tНекорректный тип прикрепляемого файла\n";
+		}
+	}
+
+	if (sError) {
+		alert("Внимание:\n" + sError);
+		return false;
+	} else {
+		return true;
+	}
+}
+//-->
+</script>
+
+<form name="present" action="present.php?{params}" method="post" enctype="multipart/form-data" onSubmit="return OnSubmit();">
+<input type="hidden" name="cmd" value="present_{cmd}">
+<input type="hidden" name="presentId" value="{presentId}">
+<!-- begin_present_bMessage -->{sMessage}<br><!-- end_present_bMessage -->
+Название: <input type="text" name="title" value="{title}"><br>
+
+Картинка: <input type="file" name="picture"><br>
+
+Приоритет: <input type="text" name="priority" value="{priority}"><br>
+
+<!-- begin_present_bInsert --><input type="submit" value="Создать"><!-- end_present_bInsert -->
+<!-- begin_present_bUpdate --><input type="submit" value="Изменить"><!-- end_present_bUpdate -->
+<input type="button" value="Отменить" onClick="location='presents.php?{params}';">
+<!-- begin_present_bDelete --><input type="button" value="Удалить" onClick="OnDelete();"><!-- end_present_bDelete -->
+<br>
+<!-- begin_present_picture --><a href="../presents/{presentId}.jpg" target="_blank"><img src="../presents/{presentId}_s.jpg" border="0"></a><!-- end_present_picture -->
+</form>
+
+<!-- end_present -->
+
+
+{iFooter}
+

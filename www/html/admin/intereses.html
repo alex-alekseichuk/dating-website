@@ -1,0 +1,62 @@
+{iHeader}
+
+Интересы<br>
+
+<!-- begin_intereses -->
+<a href="interes.php?{params}">Добавить</a>
+<br>
+
+{info}<br>
+<!-- begin_intereses_pager -->
+<!-- begin_intereses_first --><a href="{url}">First</a> <!-- end_intereses_first -->
+<!-- begin_intereses_prev --><a href="{url}">Prev.</a> <!-- end_intereses_prev -->
+<!-- begin_intereses_page -->
+<!-- begin_intereses_link --><a href="{url}">{page}</a> <!-- end_intereses_link -->
+<!-- begin_intereses_curpage --><b>{page}</b> <!-- end_intereses_curpage -->
+<!-- end_intereses_page -->
+<!-- begin_intereses_next --><a href="{url}">Next</a> <!-- end_intereses_next -->
+<!-- begin_intereses_last --><a href="{url}">Last</a> <!-- end_intereses_last -->
+<!-- end_intereses_pager -->
+<br>
+<table>
+<tr>
+<td>
+	<!-- begin_intereses_sort_interesId --><a href="{url}">ID</a> 
+	<!-- begin_intereses_asc_interesId --><img border="0" src="{images}/asc.gif" /><!-- end_intereses_asc_interesId -->
+	<!-- begin_intereses_desc_interesId --><img border="0" src="{images}/desc.gif" /><!-- end_intereses_desc_interesId --><!-- end_intereses_sort_interesId --></td> 
+<td>
+	<!-- begin_intereses_sort_maskId --><a href="{url}">Mask ID</a> 
+	<!-- begin_intereses_asc_maskId --><img border="0" src="{images}/asc.gif" /><!-- end_intereses_asc_maskId -->
+	<!-- begin_intereses_desc_maskId --><img border="0" src="{images}/desc.gif" /><!-- end_intereses_desc_maskId --><!-- end_intereses_sort_maskId --></td> 
+<td>
+	<!-- begin_intereses_sort_title --><a href="{url}">Интересы</a> 
+	<!-- begin_intereses_asc_title --><img border="0" src="{images}/asc.gif" /><!-- end_intereses_asc_title -->
+	<!-- begin_intereses_desc_title --><img border="0" src="{images}/desc.gif" /><!-- end_intereses_desc_title --><!-- end_intereses_sort_title --></td> 
+<td>
+	<!-- begin_intereses_sort_priority --><a href="{url}">Приоритет</a> 
+	<!-- begin_intereses_asc_priority --><img border="0" src="{images}/asc.gif" /><!-- end_intereses_asc_priority -->
+	<!-- begin_intereses_desc_priority --><img border="0" src="{images}/desc.gif" /><!-- end_intereses_desc_priority --><!-- end_intereses_sort_priority --></td> 
+</tr>
+
+<!-- begin_intereses_item -->
+<tr>
+<td>{interesId}</td>
+<td>{maskId}</td>
+<td><a href="{link}{interesId}&{params}">{title}</a></td>
+<td>{priority}</td>
+</tr>
+<!-- end_intereses_item -->
+
+<!-- begin_intereses_noitems -->
+<tr class="NoRecords">
+<td colspan="4">Нет записей</td>
+</tr>
+<!-- end_intereses_noitems -->
+</table>
+
+{info}<br>
+{pager2}<br>
+
+<!-- end_intereses -->
+
+{iFooter}

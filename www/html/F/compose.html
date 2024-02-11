@@ -1,0 +1,89 @@
+{iHeader}
+
+<script language="JavaScript" type="text/javascript" src="{images}/check.js"></script>
+
+<a href="mail.php?{params}">Контакты</a>
+<br>
+<br>
+
+<!-- begin_user -->
+<a href="view.php?userId={userId}&{params}"><img src="pics/{img}" border="0"></a>
+<a href="view.php?userId={userId}&{params}">{login}</a>
+<br>
+<br>
+
+<!-- begin_bBlacklist -->
+Вы в черном списке этого человека.
+<br>
+<br>
+<!-- end_bBlacklist -->
+
+<a href="mail.php?cmd=block&userId={userId}&{params}">занести в черный список</a>
+<br>
+<br>
+
+<!-- end_user -->
+
+
+
+
+<!-- begin_messages -->
+{info}<br>
+<!-- begin_messages_pager -->
+<!-- begin_messages_first --><a href="{url}">First</a> <!-- end_messages_first -->
+<!-- begin_messages_prev --><a href="{url}">Prev.</a> <!-- end_messages_prev -->
+<!-- begin_messages_page -->
+<!-- begin_messages_link --><a href="{url}">{page}</a> <!-- end_messages_link -->
+<!-- begin_messages_curpage --><b>{page}</b> <!-- end_messages_curpage -->
+<!-- end_messages_page -->
+<!-- begin_messages_next --><a href="{url}">Next</a> <!-- end_messages_next -->
+<!-- begin_messages_last --><a href="{url}">Last</a> <!-- end_messages_last -->
+<!-- end_messages_pager -->
+<br>
+<!-- begin_messages_item -->
+<b>{login}</b> {sent}<br>
+<i>{message}</i><br>
+<!-- end_messages_item -->
+
+{info}<br>
+{pager2}<br>
+
+<!-- end_messages -->
+
+
+
+
+<!-- begin_compose -->
+
+<script language="JavaScript">
+<!--
+function OnSubmit()
+{
+	var sError = "";
+
+	{checks}
+
+	if (sError) {
+		alert("Внимание:\n" + sError);
+		return false;
+	} else {
+		return true;
+	}
+}
+//-->
+</script>
+
+<br>
+Послать Сообщение<br>
+
+<form name="compose" action="compose.php?{params}" method="post" onSubmit="return OnSubmit();">
+<input type="hidden" name="cmd" value="compose_insert">
+<!-- begin_compose_bMessage -->{sMessage}<br><!-- end_compose_bMessage -->
+<textarea name="message">{message}</textarea><br>
+<input type="submit" value="Послать">
+<input type="reset" value="Очистить">
+<br>
+<!-- end_compose -->
+
+
+{iFooter}

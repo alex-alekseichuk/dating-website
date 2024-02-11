@@ -1,0 +1,56 @@
+{iHeader}
+
+<script language="JavaScript" type="text/javascript" src="{images}/check.js"></script>
+
+
+
+<!-- begin_presents -->
+
+Послать подарок
+<br>
+<br>
+<a href="view.php?userId={userId}">{login}</a>
+<br>
+<!-- begin_bMessage -->
+{sMessage}<br>
+<!-- end_bMessage -->
+
+<script language="JavaScript">
+<!--
+function OnSubmit()
+{
+	var sError = "";
+
+	{checks}
+
+	if (sError) {
+		alert("Внимание:\n" + sError);
+		return false;
+	} else {
+		return true;
+	}
+}
+//-->
+</script>
+
+<form name="present" action="present.php?{params}" method="post" onSubmit="return OnSubmit();">
+<input type="hidden" name="cmd" value="send">
+<input type="hidden" name="userId" value="{userId}">
+
+<textarea name="message">{message}</textarea><br>
+
+
+<!-- begin_present -->
+<input type="radio" name="presentId" value="{presentId}">
+<br>
+<a href="presents/{presentId}.jpg" target="_blank"><img src="presents/{presentId}_s.jpg" border="0"></a>
+<br><br>
+<!-- end_present -->
+
+<input type="submit" value="Послать">
+<input type="reset" value="Очистить">
+</form>
+<!-- end_presents -->
+
+
+{iFooter}

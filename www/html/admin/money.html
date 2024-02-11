@@ -1,0 +1,54 @@
+{iHeader}
+
+
+<script language="JavaScript" type="text/javascript" src="{images}/check.js"></script>
+
+<!-- begin_money -->
+
+<!-- begin_money_bHeadNew -->Новая запись<!-- end_money_bHeadNew -->
+<!-- begin_money_bHeadExisted -->Материальное положение #{moneyId}<!-- end_money_bHeadExisted -->
+
+<br>
+
+<script language="JavaScript">
+<!--
+function OnDelete()
+{
+	if (confirm("Уверены что хотите удалить?"))
+	{
+		location='money.php?cmd=delete&{params}';
+	}
+}
+function OnSubmit()
+{
+	var sError = "";
+
+	{checks}
+
+	if (sError) {
+		alert("Внимание:\n" + sError);
+		return false;
+	} else {
+		return true;
+	}
+}
+//-->
+</script>
+
+<form name="money" action="money.php?{params}" method="post" onSubmit="return OnSubmit();">
+<input type="hidden" name="cmd" value="money_{cmd}">
+<input type="hidden" name="moneyId" value="{moneyId}">
+<!-- begin_money_bMessage -->{sMessage}<br><!-- end_money_bMessage -->
+Материальное положение: <input type="text" name="title" value="{title}"><br>
+Приоритет: <input type="text" name="priority" value="{priority}"><br>
+<!-- begin_money_bInsert --><input type="submit" value="Создать"><!-- end_money_bInsert -->
+<!-- begin_money_bUpdate --><input type="submit" value="Изменить"><!-- end_money_bUpdate -->
+<input type="button" value="Отменить" onClick="location='moneys.php?{params}';">
+<!-- begin_money_bDelete --><input type="button" value="Удалить" onClick="OnDelete();"><!-- end_money_bDelete -->
+</form>
+
+<!-- end_money -->
+
+
+{iFooter}
+

@@ -1,0 +1,46 @@
+{iHeader}
+
+<script language="JavaScript" type="text/javascript" src="{images}/check.js"></script>
+
+Турбо-рассылка
+<br>
+<br>
+
+<!-- begin_turbo -->
+Ваш баланс: ${account}<br>
+Стоимость турбо-рассылки: ${sendPrice}<br>
+<br>
+
+<script language="JavaScript">
+<!--
+function OnSubmit()
+{
+	var sError = "";
+
+	sError += checkField("Сообщение",document.forms["turbo"].message.value,true,10,4096)
+
+	if (sError) {
+		alert("Внимание:\n" + sError);
+		return false;
+	} else {
+		return true;
+	}
+}
+//-->
+</script>
+
+<form name="turbo" action="turbo.php?{params}" method="post" onSubmit="return OnSubmit();">
+<input type="hidden" name="cmd" value="turbo">
+<!-- begin_bMessage -->{sMessage}<br><!-- end_bMessage -->
+Кому: <select name="sex"><option value="">Всем</option><option value="M">Парням</option><option value="F">Девушкам</option></select><br>
+<textarea name="message">{message}</textarea><br>
+<input type="submit" value="Разослать">
+<input type="reset" value="Очистить">
+</form>
+
+<!-- end_turbo -->
+
+
+
+
+{iFooter}

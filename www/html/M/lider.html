@@ -1,0 +1,309 @@
+<script language="JavaScript">
+<!--
+
+var userId = 0;
+
+var timeOut = 0;
+var nTimeout = 15; // 15 seconds
+
+var bUpdate = 0;
+
+var nLiders = 0;
+var userIds = new Array();
+var logins = new Array();
+var ages = new Array();
+var cities = new Array();
+var sexs = new Array();
+var lookSexs = new Array();
+var bVIPs = new Array();
+var sHellos = new Array();
+var imgs = new Array();
+var sTimes = new Array();
+var nRating = new Array();
+
+var account = 0;
+var bank = 0;
+var inGame = 0;
+var rating = 0;
+
+
+var nLiders2 = 0;
+var userIds2 = new Array();
+var logins2 = new Array();
+var ages2 = new Array();
+var cities2 = new Array();
+var sexs2 = new Array();
+var lookSexs2 = new Array();
+var bVIPs2 = new Array();
+var sHellos2 = new Array();
+var imgs2 = new Array();
+var sTimes2 = new Array();
+var nRating2 = new Array();
+
+var account2 = 0;
+var bank2 = 0;
+var inGame2 = 0;
+var rating2 = 0;
+
+var sHeader = 
+"<html>\n" +
+"<head>\n" +
+"<meta http-equiv=\"Content-Type\" content=\"text/html; charset=windows-1251\">\n" +
+"<meta http-equiv=\"Cache-Control\" content=\"no-cache,post-check=0,pre-check=0,no-cache\" />\n" +
+"<meta http-equiv=\"Pragma\" content=\"no-cache\" />\n" +
+"<meta http-equiv=\"Expires\" content=\"Thu,01Dec199416:00:00GMT\" />\n" +
+"<link rel=\"stylesheet\" type=\"text/css\" href=\"{images}/fyd.css\">\n" +
+"</head>\n" +
+"<body>\n";
+
+var sFooter = "\n</body></html>";
+
+
+
+
+function OnTimer()
+{
+	if (timeOut != 0)
+	{
+		clearTimeout(timeOut);
+		timeOut = 0;
+	}
+	fUpdate.location = "liderUpdate.php";
+}
+
+
+function updateGame()
+{
+	var i;
+//	alert("update");
+
+	if (timeOut != 0)
+	{
+		clearTimeout(timeOut);
+		timeOut = 0;
+	}
+
+	bUpdate = 0;
+
+	if (nLiders2 != nLiders)
+		bUpdate = 1;
+
+	for (i = 0; i < nLiders; i++)
+	{
+		if (i < nLiders2 && userIds2[i] != userIds[i])
+			bUpdate = 1;
+		userIds2[i] = userIds[i];
+		logins2[i] = logins[i];
+		ages2[i] = ages[i];
+		cities2[i] = cities[i];
+		sexs2[i] = sexs[i];
+		lookSexs2[i] = lookSexs[i];
+		bVIPs2[i] = bVIPs[i];
+		imgs2[i] = imgs[i];
+
+		if (i < nLiders2 && sHellos2[i] != sHellos[i])
+			bUpdate = 1;
+		sHellos2[i] = sHellos[i];
+
+		if (i < nLiders2 && nRating2[i] != nRating[i])
+			bUpdate = 1;
+		nRating2[i] = nRating[i];
+
+//		if (i == 0 && sTimes2[i] != sTimes[i])
+//			bUpdate = 1;
+		sTimes2[i] = sTimes[i];
+	}
+
+	nLiders2 = nLiders;
+
+
+	if (account2 != account)
+		bUpdate = 1;
+	account2 = account;
+	if (bank2 != bank)
+		bUpdate = 1;
+	bank2 = bank;
+	if (inGame2 != inGame)
+		bUpdate = 1;
+	inGame2 = inGame;
+	if (rating2 != rating)
+		bUpdate = 1;
+	rating2 = rating;
+
+
+
+if (bUpdate == 1)
+{
+
+	fGame.document.open(); fGame.document.write(sHeader);
+	var s, n, i, j;
+	s = "";
+	s = s +
+		"<table border=\"0\"><tr><td valign=\"top\">";
+
+	s = s +
+		"Ваш счет: " + account + " $<br>\n" +
+		"Ваш банк: " + bank + " баллов<br>\n" +
+		"Ваша ставка: " + inGame + " баллов<br>\n" +
+		"Ваша позиция: " + (rating == 0 ? "вне игры" : (rating == 1 ? "ЛИДЕР" : (rating))) + "<br>\n";
+
+    s = s +
+		"</td><td valign=\"top\">";
+
+	if (nLiders > 0)
+	{
+		s = s +
+			"<table border=\"0\">";
+
+		s = s +
+			"<tr>\n";
+		s = s +
+			"<td align=\"center\" valign=\"bottom\">";
+		n = Math.round(nRating[0] / 10);
+		if (n < 1) n = 1;
+		if (n > 10) n = 10;
+		for (j=0; j<n; j++)
+		{
+			s = s +
+				"<br><img src=\"{images}/game-lider.gif\" border=\"0\">";
+		}
+		s = s +
+			"</td>\n";
+		for (i=1; i<nLiders; i++)
+		{
+			s = s +
+				"<td align=\"center\" valign=\"bottom\">";
+			n = Math.round(nRating[i] / 10);
+			if (n < 1) n = 1;
+			if (n > 10) n = 10;
+			for (j=0; j<n; j++)
+			{
+				s = s +
+					"<br><img src=\"{images}/game-lider2.gif\" border=\"0\">";
+			}
+			s = s +
+				"</td>\n";
+		}
+		s = s +
+			"</tr>\n";
+
+
+		s = s +
+			"<tr>\n";
+		s = s +
+			"<td align=\"center\" valign=\"bottom\">";
+		s = s +
+			nRating[0];
+		s = s +
+			"</td>\n";
+		for (i=1; i<nLiders; i++)
+		{
+			s = s +
+				"<td align=\"center\" valign=\"bottom\">";
+			s = s +
+				nRating[i];
+			s = s +
+				"</td>\n";
+		}
+		s = s +
+			"</tr>\n";
+
+
+		s = s +
+			"<tr>\n";
+		s = s +
+			"<td align=\"center\" valign=\"bottom\">";
+		s = s +
+			"<a target=\"_blank\" href=\"view.php?userId=" + userIds[0] + "\"><img src=\"pics/" + imgs[0] + "\" border=\"0\"></a><br>";
+		s = s +
+			"</td>\n";
+		for (i=1; i<nLiders; i++)
+		{
+			s = s +
+				"<td align=\"center\" valign=\"bottom\">";
+			s = s +
+				"<a target=\"_blank\" href=\"view.php?userId=" + userIds[i] + "\"><img src=\"pics/" + imgs[i] + "\" border=\"0\"><br></a>";
+			s = s +
+				"</td>\n";
+		}
+		s = s +
+			"</tr>\n";
+
+
+		s = s +
+			"<tr>\n";
+		s = s +
+			"<td align=\"center\" valign=\"top\">";
+		if (bVIPs[0] == "Y")
+			s = s + "VIP\n";
+		else
+			s = s + "Обычный\n";
+		s = s +
+			"<br>\n" +
+			"<a target=\"_blank\" href=\"view.php?userId=" + userIds[0] + "\">" + logins[0] + "</a>, " + ages[0] + " " + cities[0] + "<br>" + sexs[0] + " ищет: " + lookSexs[0] + "\n" +
+			"<br>\n";
+		s = s +
+			"<a target=\"_blank\" href=\"compose.php?userId=" + userIds[0] + "\">Послать сообщение</a><br>\n";
+		s = s +
+			"" + sHellos[0] + "\n";
+		s = s +
+			"</td>\n";
+		for (i=1; i<nLiders; i++)
+		{
+			s = s +
+				"<td align=\"center\" valign=\"top\">";
+			if (bVIPs[i] == "Y")
+				s = s + "VIP\n";
+			else
+				s = s + "Обычный\n";
+			s = s +
+				"<br>\n" +
+				"<a target=\"_blank\" href=\"view.php?userId=" + userIds[i] + "\">" + logins[i] + "</a>, " + ages[i] + " " + cities[i] + "<br>" + sexs[i] + " ищет: " + lookSexs[i] + "\n" +
+				"<br>\n";
+			s = s +
+				"<a target=\"_blank\" href=\"compose.php?userId=" + userIds[i] + "\">Послать сообщение</a><br>\n";
+			s = s +
+				"<i>" + sHellos[i] + "</i>\n";
+			s = s +
+				"</td>\n";
+		}
+		s = s +
+			"</tr>\n";
+
+		s = s +
+			"</table>\n";
+	} else {
+		s = s + "Начните игру! Минимальная ставка и Вы - ЛИДЕР вашего города!\n";
+	}
+
+    s = s +
+		"</td></tr></table>";
+
+
+	fGame.document.write(s);
+	fGame.document.write(sFooter); fGame.document.close();
+} // if (bUpdate)
+
+	timeOut = window.setTimeout("OnTimer()", nTimeout * 1000);
+}
+
+
+
+//-->
+</script>
+<frameset cols="*,0">
+	<frameset rows="*,150">
+		<frame frameborder="1" marginheight="0" marginwidth="0"
+			name="fGame" scrolling="yes"
+			src="blank.html">
+		<frame frameborder="1" marginheight="0" marginwidth="0"
+			name="fForm" scrolling="yes"
+			src="liderForm.php">
+	</frameset>
+	<frame frameborder="1" marginheight="0" marginwidth="0"
+		name="fUpdate" scrolling="yes"
+		src="liderUpdate.php">
+	<noframes>Ваш браузер не поддерживает фреймы.</noframes>
+</frameset>
+
+

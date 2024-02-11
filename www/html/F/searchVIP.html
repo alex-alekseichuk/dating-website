@@ -1,0 +1,62 @@
+Расширенный Поиск<br>
+<script language="JavaScript" type="text/javascript" src="{images}/check.js"></script>
+<script language="JavaScript">
+<!--
+function OnSearch()
+{
+	var sError = "";
+
+	sError += checkIntField("Возраст",document.forms["search"].ageFrom.value,false,16,90);
+	sError += checkIntField("Возраст",document.forms["search"].ageTo.value,false,16,90);
+
+	sError += checkIntField("Рост",document.forms["search"].hightFrom.value,false,50,300);
+	sError += checkIntField("Рост",document.forms["search"].hightTo.value,false,50,300);
+
+	sError += checkIntField("Вес",document.forms["search"].weightFrom.value,false,15,300);
+	sError += checkIntField("Вес",document.forms["search"].weightTo.value,false,15,300);
+
+	if (sError) {
+		alert("Внимание:\n" + sError);
+		return false;
+	} else {
+		return true;
+	}
+}
+//-->
+</script>
+<form name="search" action="search.php" method="post" onSubmit="return OnSearch();">
+<input type="hidden" name="cmd" value="search">
+Возраст: от <input type="text" name="ageFrom" value="{ageFrom}"> до <input type="text" name="ageTo" value="{ageTo}"><br>
+Я <select name="lookSex"><option value=""></option>{lookSexOptions}</select>
+ищу <select name="sex"><option value=""></option>{sexOptions}</select>
+<br>
+Город: <select name="cityId"><option value="0"></option>{cityOptions}</select>
+<br>
+<input name="withPic"  type="checkbox" value="checkbox" {withPic} /> с фотографией<br/>
+<input name="withVideo"  type="checkbox" value="checkbox" {withVideo} /> с видеороликом<br/>
+
+Рост, см: от <input type="text" name="hightFrom" value="{hightFrom}"> до <input type="text" name="hightTo" value="{hightTo}"><br>
+Вес, кг: от <input type="text" name="weightFrom" value="{weightFrom}"> до <input type="text" name="weightTo" value="{weightTo}"><br>
+Материальное положение: <select name="moneyId"><option value="0"></option>{moneyOptions}</select><br>
+Дети: <select name="childrenId"><option value="-1"></option>{childrenOptions}</select><br>
+Проживание: <select name="homeId"><option value="0"></option>{homeOptions}</select><br>
+Алкоголь: <select name="alcoholId"><option value="0"></option>{alcoholOptions}</select><br>
+Курение: <select name="smokeId"><option value="0"></option>{smokeOptions}</select><br>
+
+Семейное положение: <select name="bMaried"><option value="0"></option>{mariedOptions}</select><br>
+
+Цели знакомства:<br>
+<!-- begin_goalIds --><input type="checkbox" name="goalIds[]" value="{value}" {checked}> {title}<br>
+<!-- end_goalIds -->
+
+Знание языков:<br>
+<!-- begin_langIds --><input type="checkbox" name="langIds[]" value="{value}" {checked}> {title}<br>
+<!-- end_langIds -->
+
+Интересы:<br>
+<!-- begin_interesIds --><input type="checkbox" name="interesIds[]" value="{value}" {checked}> {title}<br>
+<!-- end_interesIds -->
+
+
+<input type="submit" value="Искать">
+</form>

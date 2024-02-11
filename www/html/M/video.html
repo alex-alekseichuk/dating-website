@@ -1,0 +1,66 @@
+{iHeader}
+
+<script language="JavaScript" type="text/javascript" src="{images}/check.js"></script>
+
+<!-- begin_fVideo -->
+
+<script language="JavaScript">
+<!--
+function OnSubmit(videoId)
+{
+	var sError = "";
+
+	sError += checkEmptyValue("Видео", document.forms["video_"+videoId].video.value);
+	if (document.forms["video_"+videoId].video.value.length > 0)
+	{
+		var sExt = document.forms["video_"+videoId].video.value;
+		var i = sExt.lastIndexOf('.');
+		if (i != -1)
+		{
+			sExt = sExt.substring(i).toLowerCase();
+		}
+		if (sExt != ".avi" && sExt != ".mpeg" && sExt != ".mpg")
+		{
+			sError += "\tНекорректный тип прикрепляемого файла\n";
+		}
+	}
+
+	if (sError) {
+		alert("Внимание:\n" + sError);
+		return false;
+	} else {
+		return true;
+	}
+}
+//-->
+</script>
+
+Ваши видео<br>
+{sMessage}<br>
+
+<!-- begin_video_ -->
+<form name="video_{videoId}" action="video.php" method="post" enctype="multipart/form-data" onSubmit="return OnSubmit({videoId});">
+<input type="hidden" name="cmd" value="update">
+<input type="hidden" name="videoId" value="{videoId}">
+{n}. {video} <a href="video/{userId}_{videoId}_{video}">Скачать</a><br>
+<input type="hidden" name="MAX_FILE_SIZE" value="{MAX_FILE_SIZE}">
+<input type="file" name="video"> &nbsp; <span>не более 3M !</span> &nbsp; (.avi, .mpeg или .mpg)<br>
+<input type="submit" value="Загрузить">
+<input type="button" value="Удалить" onClick="document.location='video.php?cmd=delete&videoId={videoId}';">
+</form>
+<br>
+<!-- end_video_ -->
+
+<!-- begin_novideo -->
+Новое видео
+<form name="video_0" action="video.php" method="post" enctype="multipart/form-data" onSubmit="return OnSubmit(0);">
+<input type="hidden" name="cmd" value="insert">
+<input type="hidden" name="MAX_FILE_SIZE" value="{MAX_FILE_SIZE}">
+<input type="file" name="video"> &nbsp; <span>не более 3M !</span> &nbsp; (.avi, .mpeg или .mpg)<br>
+<input type="submit" value="Загрузить">
+</form>
+<!-- end_novideo -->
+
+<!-- end_fVideo -->
+
+{iFooter}

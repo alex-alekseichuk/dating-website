@@ -1,0 +1,31 @@
+Поиск<br>
+<script language="JavaScript" type="text/javascript" src="{images}/check.js"></script>
+<script language="JavaScript">
+<!--
+function OnSearch()
+{
+	var sError = "";
+
+	sError += checkIntField("Возраст",document.forms["search"].ageFrom.value,false,16,90);
+	sError += checkIntField("Возраст",document.forms["search"].ageTo.value,false,16,90);
+
+	if (sError) {
+		alert("Внимание:\n" + sError);
+		return false;
+	} else {
+		return true;
+	}
+}
+//-->
+</script>
+<form name="search" action="search.php" method="post" onSubmit="return OnSearch();">
+<input type="hidden" name="cmd" value="search">
+Возраст: от <input type="text" name="ageFrom" value="{ageFrom}"> до <input type="text" name="ageTo" value="{ageTo}"><br>
+Я <select name="lookSex"><option value=""></option>{lookSexOptions}</select>
+ищу <select name="sex"><option value=""></option>{sexOptions}</select>
+<br>
+Город: <select name="cityId"><option value="0"></option>{cityOptions}</select><br>
+<input name="withPic"  type="checkbox" value="checkbox" {withPic} /> с фотографией<br/>
+<input name="withVideo"  type="checkbox" value="checkbox" {withVideo} /> с видеороликом<br/>
+<input type="submit" value="Искать">
+</form>

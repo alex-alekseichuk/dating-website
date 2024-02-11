@@ -1,0 +1,100 @@
+{iHeader}
+
+<script language="JavaScript" type="text/javascript" src="{images}/check.js"></script>
+
+
+<!-- begin_user -->
+
+<script language="JavaScript">
+<!--
+function OnSubmit()
+{
+	var sError = "";
+
+	{checks}
+
+	if (document.forms["user"].passwd.value != document.forms["user"].passwd2.value)
+		sError += "\tВведенные пароли не совпадают\n";
+
+	if (sError) {
+		alert("Внимание:\n" + sError);
+		return false;
+	} else {
+		return true;
+	}
+}
+//-->
+</script>
+
+Ваша анкета<br>
+{sMessage}<br>
+<form name="user" action="profile.php" method="post" onSubmit="return OnSubmit();">
+<input type="hidden" name="cmd" value="user_{cmd}">
+
+Логин: {login}<br>
+Пароль: <input type="password" name="passwd" value=""><br>
+Пароль еще раз: <input type="password" name="passwd2" value=""><br>
+
+Email: <input type="text" name="email" value="{email}"><br>
+
+Я: <select name="sex"><option value="">[Укажите ваш пол]</option>{sexOptions}</select>
+ищу <select name="lookSex"><option value="">[Укажите пол]</option>{lookSexOptions}</select>
+<br>
+
+День рождения:
+<select name="birthDay"><option value="">[День]</option>{birthDayOptions}</select>
+<select name="birthMonth"><option value="">[Месяц]</option>{birthMonthOptions}</select>
+<select name="birthYear"><option value="">[Год]</option>{birthYearOptions}</select>
+<br>
+Город: <select name="cityId"><option value="">[Укажите ваш город]</option>{cityIdOptions}</select><br>
+
+Рост: <input type="text" name="hight" value="{hight}"> см<br>
+Вес: <input type="text" name="weight" value="{weight}"> кг<br>
+
+Цели знакомства:<br>
+<!-- begin_goalIds --><input type="checkbox" name="goalIds[]" value="{value}" {checked}> {title}<br>
+<!-- end_goalIds -->
+
+Материальное положение: <select name="moneyId"><option value=""></option>{moneyIdOptions}</select><br>
+Дети: <select name="childrenId"><option value=""></option>{childrenIdOptions}</select><br>
+
+Семейное положение: <input type="checkbox" name="bMarried" value="1" {bMarried}> женат/замужем<br>
+Проживание: <select name="homeId"><option value=""></option>{homeIdOptions}</select><br>
+
+Знание языков:<br>
+<!-- begin_langIds --><input type="checkbox" name="langIds[]" value="{value}" {checked}> {title}<br>
+<!-- end_langIds -->
+
+Интересы:<br>
+<!-- begin_interesIds --><input type="checkbox" name="interesIds[]" value="{value}" {checked}> {title}<br>
+<!-- end_interesIds -->
+
+Алкоголь: <select name="alcoholId"><option value=""></option>{alcoholIdOptions}</select><br>
+Курение: <select name="smokeId"><option value=""></option>{smokeIdOptions}</select><br>
+
+Обо мне: <textarea name="about">{about}</textarea><br>
+
+Статус: {bVIP}<br>
+Счет: {account}<br>
+Регистрация: {registered}<br>
+
+<br>
+<input type="submit" value="Изменить">
+<input type="reset" value="Отменить">
+</form>
+<!-- end_user -->
+
+<!-- begin_up -->
+<!-- begin_up_bMessage -->
+{sMessage}<br>
+<!-- end_up_bMessage -->
+Ваш баланс: ${account}<br>
+<!-- begin_up_free -->
+<a href="profile.php?cmd=upfree">Поднять анкету на главной</a> бесплатно
+<!-- end_up_free -->
+<!-- begin_up_money -->
+<a href="profile.php?cmd=upmoney">Поднять анкету на главной</a> ${ratingUpPrice}
+<!-- end_up_money -->
+<!-- end_up -->
+
+{iFooter}

@@ -1,0 +1,84 @@
+{iHeader}
+
+<script language="JavaScript" type="text/javascript" src="{images}/check.js"></script>
+
+<br>
+<a href="login.php">Вход</a>
+<br>
+<a href="forgot_passwd.php">Забыли пароль?</a>
+
+<br>
+<br>
+
+
+<!-- begin_user -->
+
+<script language="JavaScript">
+<!--
+function OnSubmit()
+{
+	var sError = "";
+
+	{checks}
+
+<!-- begin_bPictureCheck -->
+	sError += checkEmptyValue("Фото", document.forms["user"].picture.value);
+	if (document.forms["user"].picture.value.length > 0)
+	{
+		var sExt = document.forms["user"].picture.value;
+		var i = sExt.lastIndexOf('.');
+		if (i != -1)
+		{
+			sExt = sExt.substring(i).toLowerCase();
+		}
+		if (sExt != ".gif" && sExt != ".jpg" && sExt != ".jpeg" && sExt != ".png")
+		{
+			sError += "\tНекорректный тип прикрепляемого файла\n";
+		}
+	}
+<!-- end_bPictureCheck -->
+
+	if (document.forms["user"].passwd.value != document.forms["user"].passwd2.value)
+		sError += "\tВведенные пароли не совпадают\n";
+
+	if (sError) {
+		alert("Внимание:\n" + sError);
+		return false;
+	} else {
+		return true;
+	}
+}
+//-->
+</script>
+
+Регистрация<br>
+{sMessage}<br>
+<form name="user" action="register.php" method="post" enctype="multipart/form-data" onSubmit="return OnSubmit();">
+<input type="hidden" name="cmd" value="user_{cmd}">
+
+Логин: <input type="text" name="login" value="{login}"><br>
+Пароль: <input type="password" name="passwd" value=""><br>
+Пароль еще раз: <input type="password" name="passwd2" value=""><br>
+
+Email: <input type="text" name="email" value="{email}"><br>
+
+Я: <select name="sex"><option value="">[Укажите ваш пол]</option>{sexOptions}</select>
+ищу <select name="lookSex"><option value="">[Укажите пол]</option>{lookSexOptions}</select>
+<br>
+
+День рождения:
+<select name="birthDay"><option value="">[День]</option>{birthDayOptions}</select>
+<select name="birthMonth"><option value="">[Месяц]</option>{birthMonthOptions}</select>
+<select name="birthYear"><option value="">[Год]</option>{birthYearOptions}</select>
+<br>
+Город: <select name="cityId"><option value="">[Укажите ваш город]</option>{cityIdOptions}</select><br>
+
+<input type="hidden" name="MAX_FILE_SIZE" value="{MAX_FILE_SIZE}">
+Фото: <input type="file" name="picture"> &nbsp; <span>не более 1M !</span> &nbsp; (.gif, .jpg или .png)<br>
+
+<br>
+<input type="submit" value="Регистрация">
+</form>
+<!-- end_user -->
+
+{iFooter}

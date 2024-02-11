@@ -1,0 +1,2 @@
+ѕодтвердите запрос на регистрацию по адресу:<br>
+<a href="{SERVER_URL}register2.php?cmd=register&userId={userId}&sCode={sCode}">{SERVER_URL}register2.php?cmd=register&userId={userId}&sCode={sCode}</a>

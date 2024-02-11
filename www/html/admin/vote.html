@@ -1,0 +1,55 @@
+{iHeader}
+
+
+<script language="JavaScript" type="text/javascript" src="{images}/check.js"></script>
+
+<!-- begin_vote -->
+
+<!-- begin_vote_bHeadNew -->Новый ответ<!-- end_vote_bHeadNew -->
+<!-- begin_vote_bHeadExisted -->Ответ #{voteId}<!-- end_vote_bHeadExisted -->
+
+<br>
+
+<script language="JavaScript">
+<!--
+function OnDelete()
+{
+	if (confirm("Уверены что хотите удалить?"))
+	{
+		location='vote.php?cmd=delete&{params}';
+	}
+}
+function OnSubmit()
+{
+	var sError = "";
+
+	{checks}
+
+	if (sError) {
+		alert("Внимание:\n" + sError);
+		return false;
+	} else {
+		return true;
+	}
+}
+//-->
+</script>
+
+<form name="vote" action="vote.php?{params}" method="post" onSubmit="return OnSubmit();">
+<input type="hidden" name="cmd" value="vote_{cmd}">
+<input type="hidden" name="voteId" value="{voteId}">
+<!-- begin_vote_bMessage -->{sMessage}<br><!-- end_vote_bMessage -->
+Ответ: <input type="text" name="title" value="{title}"><br>
+Счетчик: <input type="text" name="cnt" value="{cnt}"><br>
+Приоритет: <input type="text" name="priority" value="{priority}"><br>
+<!-- begin_vote_bInsert --><input type="submit" value="Создать"><!-- end_vote_bInsert -->
+<!-- begin_vote_bUpdate --><input type="submit" value="Изменить"><!-- end_vote_bUpdate -->
+<input type="button" value="Отменить" onClick="location='votes.php?{params}';">
+<!-- begin_vote_bDelete --><input type="button" value="Удалить" onClick="OnDelete();"><!-- end_vote_bDelete -->
+</form>
+
+<!-- end_vote -->
+
+
+{iFooter}
+

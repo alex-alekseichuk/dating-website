@@ -1,0 +1,57 @@
+{iHeader}
+
+Материальное положение<br>
+
+<!-- begin_moneys -->
+<a href="money.php?{params}">Добавить</a>
+<br>
+
+{info}<br>
+<!-- begin_moneys_pager -->
+<!-- begin_moneys_first --><a href="{url}">First</a> <!-- end_moneys_first -->
+<!-- begin_moneys_prev --><a href="{url}">Prev.</a> <!-- end_moneys_prev -->
+<!-- begin_moneys_page -->
+<!-- begin_moneys_link --><a href="{url}">{page}</a> <!-- end_moneys_link -->
+<!-- begin_moneys_curpage --><b>{page}</b> <!-- end_moneys_curpage -->
+<!-- end_moneys_page -->
+<!-- begin_moneys_next --><a href="{url}">Next</a> <!-- end_moneys_next -->
+<!-- begin_moneys_last --><a href="{url}">Last</a> <!-- end_moneys_last -->
+<!-- end_moneys_pager -->
+<br>
+<table>
+<tr>
+<td>
+	<!-- begin_moneys_sort_moneyId --><a href="{url}">ID</a> 
+	<!-- begin_moneys_asc_moneyId --><img border="0" src="{images}/asc.gif" /><!-- end_moneys_asc_moneyId -->
+	<!-- begin_moneys_desc_moneyId --><img border="0" src="{images}/desc.gif" /><!-- end_moneys_desc_moneyId --><!-- end_moneys_sort_moneyId --></td> 
+<td>
+	<!-- begin_moneys_sort_title --><a href="{url}">Текст</a> 
+	<!-- begin_moneys_asc_title --><img border="0" src="{images}/asc.gif" /><!-- end_moneys_asc_title -->
+	<!-- begin_moneys_desc_title --><img border="0" src="{images}/desc.gif" /><!-- end_moneys_desc_title --><!-- end_moneys_sort_title --></td> 
+<td>
+	<!-- begin_moneys_sort_priority --><a href="{url}">Приоритет</a> 
+	<!-- begin_moneys_asc_priority --><img border="0" src="{images}/asc.gif" /><!-- end_moneys_asc_priority -->
+	<!-- begin_moneys_desc_priority --><img border="0" src="{images}/desc.gif" /><!-- end_moneys_desc_priority --><!-- end_moneys_sort_priority --></td> 
+</tr>
+
+<!-- begin_moneys_item -->
+<tr>
+<td>{moneyId}</td>
+<td><a href="{link}{moneyId}&{params}">{title}</a></td>
+<td>{priority}</td>
+</tr>
+<!-- end_moneys_item -->
+
+<!-- begin_moneys_noitems -->
+<tr class="NoRecords">
+<td colspan="3">Нет записей</td>
+</tr>
+<!-- end_moneys_noitems -->
+</table>
+
+{info}<br>
+{pager2}<br>
+
+<!-- end_moneys -->
+
+{iFooter}

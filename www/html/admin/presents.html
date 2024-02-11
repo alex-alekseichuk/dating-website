@@ -1,0 +1,57 @@
+{iHeader}
+
+Подарки<br>
+
+<!-- begin_presents -->
+<a href="present.php?{params}">Добавить</a>
+<br>
+
+{info}<br>
+<!-- begin_presents_pager -->
+<!-- begin_presents_first --><a href="{url}">First</a> <!-- end_presents_first -->
+<!-- begin_presents_prev --><a href="{url}">Prev.</a> <!-- end_presents_prev -->
+<!-- begin_presents_page -->
+<!-- begin_presents_link --><a href="{url}">{page}</a> <!-- end_presents_link -->
+<!-- begin_presents_curpage --><b>{page}</b> <!-- end_presents_curpage -->
+<!-- end_presents_page -->
+<!-- begin_presents_next --><a href="{url}">Next</a> <!-- end_presents_next -->
+<!-- begin_presents_last --><a href="{url}">Last</a> <!-- end_presents_last -->
+<!-- end_presents_pager -->
+<br>
+<table>
+<tr>
+<td>
+	<!-- begin_presents_sort_presentId --><a href="{url}">ID</a> 
+	<!-- begin_presents_asc_presentId --><img border="0" src="{images}/asc.gif" /><!-- end_presents_asc_presentId -->
+	<!-- begin_presents_desc_presentId --><img border="0" src="{images}/desc.gif" /><!-- end_presents_desc_presentId --><!-- end_presents_sort_presentId --></td> 
+<td>
+	<!-- begin_presents_sort_title --><a href="{url}">Текст</a> 
+	<!-- begin_presents_asc_title --><img border="0" src="{images}/asc.gif" /><!-- end_presents_asc_title -->
+	<!-- begin_presents_desc_title --><img border="0" src="{images}/desc.gif" /><!-- end_presents_desc_title --><!-- end_presents_sort_title --></td> 
+<td>
+	<!-- begin_presents_sort_priority --><a href="{url}">Приоритет</a> 
+	<!-- begin_presents_asc_priority --><img border="0" src="{images}/asc.gif" /><!-- end_presents_asc_priority -->
+	<!-- begin_presents_desc_priority --><img border="0" src="{images}/desc.gif" /><!-- end_presents_desc_priority --><!-- end_presents_sort_priority --></td> 
+</tr>
+
+<!-- begin_presents_item -->
+<tr>
+<td>{presentId}</td>
+<td><a href="{link}{presentId}&{params}">{title}</a></td>
+<td>{priority}</td>
+</tr>
+<!-- end_presents_item -->
+
+<!-- begin_presents_noitems -->
+<tr class="NoRecords">
+<td colspan="3">Нет записей</td>
+</tr>
+<!-- end_presents_noitems -->
+</table>
+
+{info}<br>
+{pager2}<br>
+
+<!-- end_presents -->
+
+{iFooter}

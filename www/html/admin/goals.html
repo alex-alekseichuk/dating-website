@@ -1,0 +1,62 @@
+{iHeader}
+
+Цели знакомства<br>
+
+<!-- begin_goals -->
+<a href="goal.php?{params}">Добавить</a>
+<br>
+
+{info}<br>
+<!-- begin_goals_pager -->
+<!-- begin_goals_first --><a href="{url}">First</a> <!-- end_goals_first -->
+<!-- begin_goals_prev --><a href="{url}">Prev.</a> <!-- end_goals_prev -->
+<!-- begin_goals_page -->
+<!-- begin_goals_link --><a href="{url}">{page}</a> <!-- end_goals_link -->
+<!-- begin_goals_curpage --><b>{page}</b> <!-- end_goals_curpage -->
+<!-- end_goals_page -->
+<!-- begin_goals_next --><a href="{url}">Next</a> <!-- end_goals_next -->
+<!-- begin_goals_last --><a href="{url}">Last</a> <!-- end_goals_last -->
+<!-- end_goals_pager -->
+<br>
+<table>
+<tr>
+<td>
+	<!-- begin_goals_sort_goalId --><a href="{url}">ID</a> 
+	<!-- begin_goals_asc_goalId --><img border="0" src="{images}/asc.gif" /><!-- end_goals_asc_goalId -->
+	<!-- begin_goals_desc_goalId --><img border="0" src="{images}/desc.gif" /><!-- end_goals_desc_goalId --><!-- end_goals_sort_goalId --></td> 
+<td>
+	<!-- begin_goals_sort_maskId --><a href="{url}">Mask ID</a> 
+	<!-- begin_goals_asc_maskId --><img border="0" src="{images}/asc.gif" /><!-- end_goals_asc_maskId -->
+	<!-- begin_goals_desc_maskId --><img border="0" src="{images}/desc.gif" /><!-- end_goals_desc_maskId --><!-- end_goals_sort_maskId --></td> 
+<td>
+	<!-- begin_goals_sort_title --><a href="{url}">Цель знакомства</a> 
+	<!-- begin_goals_asc_title --><img border="0" src="{images}/asc.gif" /><!-- end_goals_asc_title -->
+	<!-- begin_goals_desc_title --><img border="0" src="{images}/desc.gif" /><!-- end_goals_desc_title --><!-- end_goals_sort_title --></td> 
+<td>
+	<!-- begin_goals_sort_priority --><a href="{url}">Приоритет</a> 
+	<!-- begin_goals_asc_priority --><img border="0" src="{images}/asc.gif" /><!-- end_goals_asc_priority -->
+	<!-- begin_goals_desc_priority --><img border="0" src="{images}/desc.gif" /><!-- end_goals_desc_priority --><!-- end_goals_sort_priority --></td> 
+</tr>
+
+<!-- begin_goals_item -->
+<tr>
+<td>{goalId}</td>
+<td>{maskId}</td>
+<td><a href="{link}{goalId}&{params}">{title}</a></td>
+<td>{priority}</td>
+</tr>
+<!-- end_goals_item -->
+
+<!-- begin_goals_noitems -->
+<tr class="NoRecords">
+<td colspan="4">Нет записей</td>
+</tr>
+<!-- end_goals_noitems -->
+</table>
+
+{info}<br>
+{pager2}<br>
+
+<!-- end_goals -->
+
+{iFooter}

@@ -1,0 +1,63 @@
+{iHeader}
+
+
+<script language="JavaScript" type="text/javascript" src="{images}/check.js"></script>
+
+<!-- begin_options -->
+
+Настройки
+<br>
+
+<script language="JavaScript">
+<!--
+function OnSubmit()
+{
+	var sError = "";
+
+	{checks}
+
+	if (sError) {
+		alert("Внимание:\n" + sError);
+		return false;
+	} else {
+		return true;
+	}
+}
+//-->
+</script>
+
+<form name="options" action="options.php?{params}" method="post" onSubmit="return OnSubmit();">
+<input type="hidden" name="cmd" value="update">
+<!-- begin_options_bMessage -->{sMessage}<br><!-- end_options_bMessage -->
+Фото обязательно: <input type="checkbox" name="pic" value="1" {pic}><br>
+Max. размер фото: <input type="text" name="picSize" value="{picSize}"> K<br>
+Max. размер видео: <input type="text" name="videoSize" value="{videoSize}"> M<br>
+Max. кол-во фото: <input type="text" name="picNum" value="{picNum}"><br>
+Max. кол-во видео: <input type="text" name="videoNum" value="{videoNum}"><br>
+Видео только для VIP: <input type="checkbox" name="videoVIP" value="1" {videoVIP}><br>
+Тип лидера: <select name="liderTypeId">{liderTypeIdOptions}</select><br>
+Кол-во лидеров: <input type="text" name="nLiders" value="{nLiders}"><br>
+Игровой период: <input type="text" name="gameTimeout" value="{gameTimeout}"> минут (не забудьте изменить его в crontab'е)<br>
+Игровая ставка: <input type="text" name="gamePrice" value="{gamePrice}"> баллов<br>
+100 баллов: <input type="text" name="points100" value="{points100}"> $<br>
+
+По просмотрам на главной: <input type="text" name="top10" value="{top10}"> 0 - отключение<br>
+Новые на главной: <input type="text" name="new10" value="{new10}"> 0 - отключение<br>
+По сообщениям на главной: <input type="text" name="view10" value="{view10}"> 0 - отключение<br>
+
+
+Цена открытия email'а: <input type="text" name="emailPrice" value="{emailPrice}"> $<br>
+Цена рассылки: <input type="text" name="sendPrice" value="{sendPrice}"> $<br>
+Цена поднятия рейтинга: <input type="text" name="ratingUpPrice" value="{ratingUpPrice}"> $<br>
+Бесплатное поднятие рейтинга: <input type="text" name="ratingFreezeDays" value="{ratingFreezeDays}"> дней<br>
+Цена подарка: <input type="text" name="presentPrice" value="{presentPrice}"> $<br>
+
+<input type="submit" value="Изменить">
+<input type="reset" value="Отменить">
+</form>
+
+<!-- end_options -->
+
+
+{iFooter}
+

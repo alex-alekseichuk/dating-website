@@ -1,0 +1,57 @@
+{iHeader}
+
+Курение<br>
+
+<!-- begin_smokes -->
+<a href="smoke.php?{params}">Добавить</a>
+<br>
+
+{info}<br>
+<!-- begin_smokes_pager -->
+<!-- begin_smokes_first --><a href="{url}">First</a> <!-- end_smokes_first -->
+<!-- begin_smokes_prev --><a href="{url}">Prev.</a> <!-- end_smokes_prev -->
+<!-- begin_smokes_page -->
+<!-- begin_smokes_link --><a href="{url}">{page}</a> <!-- end_smokes_link -->
+<!-- begin_smokes_curpage --><b>{page}</b> <!-- end_smokes_curpage -->
+<!-- end_smokes_page -->
+<!-- begin_smokes_next --><a href="{url}">Next</a> <!-- end_smokes_next -->
+<!-- begin_smokes_last --><a href="{url}">Last</a> <!-- end_smokes_last -->
+<!-- end_smokes_pager -->
+<br>
+<table>
+<tr>
+<td>
+	<!-- begin_smokes_sort_smokeId --><a href="{url}">ID</a> 
+	<!-- begin_smokes_asc_smokeId --><img border="0" src="{images}/asc.gif" /><!-- end_smokes_asc_smokeId -->
+	<!-- begin_smokes_desc_smokeId --><img border="0" src="{images}/desc.gif" /><!-- end_smokes_desc_smokeId --><!-- end_smokes_sort_smokeId --></td> 
+<td>
+	<!-- begin_smokes_sort_title --><a href="{url}">Текст</a> 
+	<!-- begin_smokes_asc_title --><img border="0" src="{images}/asc.gif" /><!-- end_smokes_asc_title -->
+	<!-- begin_smokes_desc_title --><img border="0" src="{images}/desc.gif" /><!-- end_smokes_desc_title --><!-- end_smokes_sort_title --></td> 
+<td>
+	<!-- begin_smokes_sort_priority --><a href="{url}">Приоритет</a> 
+	<!-- begin_smokes_asc_priority --><img border="0" src="{images}/asc.gif" /><!-- end_smokes_asc_priority -->
+	<!-- begin_smokes_desc_priority --><img border="0" src="{images}/desc.gif" /><!-- end_smokes_desc_priority --><!-- end_smokes_sort_priority --></td> 
+</tr>
+
+<!-- begin_smokes_item -->
+<tr>
+<td>{smokeId}</td>
+<td><a href="{link}{smokeId}&{params}">{title}</a></td>
+<td>{priority}</td>
+</tr>
+<!-- end_smokes_item -->
+
+<!-- begin_smokes_noitems -->
+<tr class="NoRecords">
+<td colspan="3">Нет записей</td>
+</tr>
+<!-- end_smokes_noitems -->
+</table>
+
+{info}<br>
+{pager2}<br>
+
+<!-- end_smokes -->
+
+{iFooter}

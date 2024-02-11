@@ -1,0 +1,57 @@
+{iHeader}
+
+Проживание<br>
+
+<!-- begin_homes -->
+<a href="home.php?{params}">Добавить</a>
+<br>
+
+{info}<br>
+<!-- begin_homes_pager -->
+<!-- begin_homes_first --><a href="{url}">First</a> <!-- end_homes_first -->
+<!-- begin_homes_prev --><a href="{url}">Prev.</a> <!-- end_homes_prev -->
+<!-- begin_homes_page -->
+<!-- begin_homes_link --><a href="{url}">{page}</a> <!-- end_homes_link -->
+<!-- begin_homes_curpage --><b>{page}</b> <!-- end_homes_curpage -->
+<!-- end_homes_page -->
+<!-- begin_homes_next --><a href="{url}">Next</a> <!-- end_homes_next -->
+<!-- begin_homes_last --><a href="{url}">Last</a> <!-- end_homes_last -->
+<!-- end_homes_pager -->
+<br>
+<table>
+<tr>
+<td>
+	<!-- begin_homes_sort_homeId --><a href="{url}">ID</a> 
+	<!-- begin_homes_asc_homeId --><img border="0" src="{images}/asc.gif" /><!-- end_homes_asc_homeId -->
+	<!-- begin_homes_desc_homeId --><img border="0" src="{images}/desc.gif" /><!-- end_homes_desc_homeId --><!-- end_homes_sort_homeId --></td> 
+<td>
+	<!-- begin_homes_sort_title --><a href="{url}">Проживание</a> 
+	<!-- begin_homes_asc_title --><img border="0" src="{images}/asc.gif" /><!-- end_homes_asc_title -->
+	<!-- begin_homes_desc_title --><img border="0" src="{images}/desc.gif" /><!-- end_homes_desc_title --><!-- end_homes_sort_title --></td> 
+<td>
+	<!-- begin_alcohols_sort_priority --><a href="{url}">Приоритет</a> 
+	<!-- begin_alcohols_asc_priority --><img border="0" src="{images}/asc.gif" /><!-- end_alcohols_asc_priority -->
+	<!-- begin_alcohols_desc_priority --><img border="0" src="{images}/desc.gif" /><!-- end_alcohols_desc_priority --><!-- end_alcohols_sort_priority --></td> 
+</tr>
+
+<!-- begin_homes_item -->
+<tr>
+<td>{homeId}</td>
+<td><a href="{link}{homeId}&{params}">{title}</a></td>
+<td>{priority}</td>
+</tr>
+<!-- end_homes_item -->
+
+<!-- begin_homes_noitems -->
+<tr class="NoRecords">
+<td colspan="3">Нет записей</td>
+</tr>
+<!-- end_homes_noitems -->
+</table>
+
+{info}<br>
+{pager2}<br>
+
+<!-- end_homes -->
+
+{iFooter}

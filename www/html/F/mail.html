@@ -1,0 +1,113 @@
+{iHeader}
+
+<script language="JavaScript" type="text/javascript" src="{images}/check.js"></script>
+
+
+
+<!-- begin_contacts -->
+
+Контакты
+<br><br>
+
+{info}<br>
+<!-- begin_contacts_pager -->
+<!-- begin_contacts_first --><a href="{url}">First</a> <!-- end_contacts_first -->
+<!-- begin_contacts_prev --><a href="{url}">Prev.</a> <!-- end_contacts_prev -->
+<!-- begin_contacts_page -->
+<!-- begin_contacts_link --><a href="{url}">{page}</a> <!-- end_contacts_link -->
+<!-- begin_contacts_curpage --><b>{page}</b> <!-- end_contacts_curpage -->
+<!-- end_contacts_page -->
+<!-- begin_contacts_next --><a href="{url}">Next</a> <!-- end_contacts_next -->
+<!-- begin_contacts_last --><a href="{url}">Last</a> <!-- end_contacts_last -->
+<!-- end_contacts_pager -->
+<br>
+<table>
+<tr>
+<td>&nbsp;</td>
+<td>
+	<!-- begin_contacts_sort_login --><a href="{url}">Контакты</a> 
+	<!-- begin_contacts_asc_login --><img border="0" src="{images}/asc.gif" /><!-- end_contacts_asc_login -->
+	<!-- begin_contacts_desc_login --><img border="0" src="{images}/desc.gif" /><!-- end_contacts_desc_login --><!-- end_contacts_sort_login --></td>
+<td>
+	<!-- begin_contacts_sort_nMess --><a href="{url}">Новые</a> 
+	<!-- begin_contacts_asc_nMess --><img border="0" src="{images}/asc.gif" /><!-- end_contacts_asc_nMess -->
+	<!-- begin_contacts_desc_nMess --><img border="0" src="{images}/desc.gif" /><!-- end_contacts_desc_nMess --><!-- end_contacts_sort_nMess --></td>
+<td>&nbsp;</td>
+</tr>
+
+<!-- begin_contacts_item -->
+<tr>
+<td><!-- begin_contacts_bNew -->новые!!!<!-- end_contacts_bNew -->&nbsp;</td>
+<td><a href="view.php?userId={userId}&{params}">{login}</a></td>
+<td><!-- begin_contacts_bIncome --><b>({nMess})</b><!-- end_contacts_bIncome -->&nbsp;</td>
+<td><a href="compose.php?userId={userId}&{params}">Сообщения</a></td>
+</tr>
+<!-- end_contacts_item -->
+
+<!-- begin_contacts_noitems -->
+<tr class="NoRecords">
+<td colspan="4">Нет контактов</td>
+</tr>
+<!-- end_contacts_noitems -->
+</table>
+{info}<br>
+{pager2}<br>
+
+<!-- end_contacts -->
+
+
+<br><br>
+
+
+<!-- begin_blacklist -->
+
+Черный список
+<br><br>
+
+<!-- begin_blacklist_bMessage -->{sMessage}<br><!-- end_blacklist_bMessage -->
+
+{info}<br>
+<!-- begin_blacklist_pager -->
+<!-- begin_blacklist_first --><a href="{url}">First</a> <!-- end_blacklist_first -->
+<!-- begin_blacklist_prev --><a href="{url}">Prev.</a> <!-- end_blacklist_prev -->
+<!-- begin_blacklist_page -->
+<!-- begin_blacklist_link --><a href="{url}">{page}</a> <!-- end_blacklist_link -->
+<!-- begin_blacklist_curpage --><b>{page}</b> <!-- end_blacklist_curpage -->
+<!-- end_blacklist_page -->
+<!-- begin_blacklist_next --><a href="{url}">Next</a> <!-- end_blacklist_next -->
+<!-- begin_blacklist_last --><a href="{url}">Last</a> <!-- end_blacklist_last -->
+<!-- end_blacklist_pager -->
+<br>
+<table>
+<tr>
+<td>
+	<!-- begin_blacklist_sort_login --><a href="{url}">Контакты</a> 
+	<!-- begin_blacklist_asc_login --><img border="0" src="{images}/asc.gif" /><!-- end_blacklist_asc_login -->
+	<!-- begin_blacklist_desc_login --><img border="0" src="{images}/desc.gif" /><!-- end_blacklist_desc_login --><!-- end_blacklist_sort_login --></td>
+<td>&nbsp;</td>
+</tr>
+
+<!-- begin_blacklist_item -->
+<tr>
+<td><a href="view.php?userId={userId}&{params}">{login}</a></td>
+<td><a href="mail.php?cmd=unblock&userId={userId}&{params}">Разблокировать</a></td>
+</tr>
+<!-- end_blacklist_item -->
+
+<!-- begin_blacklist_noitems -->
+<tr class="NoRecords">
+<td colspan="2">Нет контактов</td>
+</tr>
+<!-- end_blacklist_noitems -->
+</table>
+{info}<br>
+{pager2}<br>
+
+<!-- end_blacklist -->
+
+<!-- begin_turbo -->
+<br>
+<a href="turbo.php">Турбо-рассылка</a><br>
+<!-- end_turbo -->
+
+{iFooter}
